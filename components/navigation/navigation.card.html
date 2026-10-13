@@ -1,0 +1,16 @@
+<!-- @dsCard group="Components" viewport="700x230" name="Navigation" subtitle="Components 4, 5, 6 on the dark nav bar; footer links" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<style>body{margin:0;padding:24px;font-family:var(--font-sans);background:var(--color-grey-3);color:var(--text-strong)}*{box-sizing:border-box}.lbl{font-size:12px;line-height:16.8px;opacity:.6;margin-bottom:8px}.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.col{display:flex;flex-direction:column;gap:16px}a{color:inherit}</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script></head><body><div id="root"></div>
+<script type="text/babel">
+const DS = window.WeltecoDesignSystem_f324c2;
+const { Component4, Component5, Component6 } = DS;
+function App(){return <div className="col">
+ <div><div className="lbl" style={{color:"#FFFCF7"}}>top nav — default / hover</div><div className="row" style={{background:"rgba(0,0,0,.3)",backdropFilter:"blur(10px)",borderRadius:4,gap:0}}><Component4 variant="4" text1="Overview"/><Component5/><Component6/><span style={{width:24}}/><Component4 variant="4" hover text1="Overview"/><Component5 hover/><Component6 hover text3="2"/></div></div>
+ <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:24}}><div><div className="lbl" style={{color:"#FFFCF7"}}>footer list</div><div style={{display:"flex",flexDirection:"column",gap:4}}><Component4 variant="1" block text1="Home V1" style={{height:24}}/><Component4 variant="1" block hover text1="Home V2" style={{height:24}}/><Component4 variant="1" block text1="Services V1" style={{height:24}}/></div></div><div><div className="lbl" style={{color:"#FFFCF7"}}>meta</div><div className="row"><Component4 variant="2" text1="Loonis"/><Component4 variant="3" text1="Licenses"/></div></div></div>
+</div>}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script></body></html>

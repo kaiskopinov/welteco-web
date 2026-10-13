@@ -1,0 +1,17 @@
+<!-- @dsCard group="Components" viewport="700x330" name="Actions" subtitle="Component 1 (4 variants), Component 3, Component 7 — default vs hover" -->
+<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<style>body{margin:0;padding:24px;font-family:var(--font-sans);background:var(--surface-page);color:var(--text-strong)}*{box-sizing:border-box}.lbl{font-size:12px;line-height:16.8px;opacity:.6;margin-bottom:8px}.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.col{display:flex;flex-direction:column;gap:16px}a{color:inherit}</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script></head><body><div id="root"></div>
+<script type="text/babel">
+const DS = window.WeltecoDesignSystem_f324c2;
+const { Component1, Component3, Component7, Icon } = DS;
+function App(){return <div className="col">
+ <div><div className="lbl">primary · light — default / hover</div><div className="row"><Component1 text1="View Projects"/><Component1 hover text1="View Projects"/><Component1 variant="4" text1="More Templates"/><Component1 variant="4" hover text1="More Templates"/><Component7/><Component7 hover/></div></div>
+ <div style={{background:"url(../../assets/images/810de8ebbe33232e.jpg) center/cover",padding:16,borderRadius:4}}><div className="lbl" style={{color:"#FFFCF7",opacity:1}}>glass (on photography) — default / hover</div><div className="row"><Component1 variant="2" text1="Contact Us"/><Component1 variant="2" hover text1="Contact Us"/></div></div>
+ <div className="row" style={{alignItems:"stretch"}}><div style={{flex:2}}><div className="lbl">wide (fills container)</div><Component1 variant="3" block text1="Visit Blog"/></div><div style={{flex:1}}><div className="lbl">SubmitButton</div><Component3 block/></div></div>
+</div>}
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script></body></html>
