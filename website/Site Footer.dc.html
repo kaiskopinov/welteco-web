@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300;400;500;600;700&display=swap">
+<script src="content.js"></script>
+<script src="site-content.js"></script>
+<style>body{margin:0;background:#131518}*{box-sizing:border-box}a{color:#FFB869}a:hover{color:#F5F5F5}</style>
+</helmet>
+<footer style="background:#131518;color:#F5F5F5;border-top:1px solid rgba(245,245,245,0.08);font-family:'Funnel Sans',-apple-system,'Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased">
+  <div style="max-width:1428px;margin:0 auto;padding:clamp(64px,7cqw,96px) 20px 24px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:48px">
+      <a href="Home B Amber.dc.html" style="line-height:0;justify-self:start"><img src="assets/65e9f1863a7cfee7941c6e94_welteco-logo__2_.svg" alt="Welteco" style="height:52px;width:auto"></a>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.55)">Welteco</span>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <sc-for list="{{ links }}" as="l" hint-placeholder-count="5"><a href="{{ l.href }}" style="color:#F5F5F5;text-decoration:none;font-size:16px;line-height:24px;transition:opacity 200ms ease" style-hover="opacity:0.6">{{ l.label }}</a></sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.55)">{{ equipTitle }}</span>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <sc-for list="{{ products }}" as="p" hint-placeholder-count="6"><a href="{{ p.href }}" style="color:#F5F5F5;text-decoration:none;font-size:16px;line-height:24px;transition:opacity 200ms ease" style-hover="opacity:0.6">{{ p.label }}</a></sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.55)">{{ callTitle }}</span>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <a href="tel:+380674871637" style="color:#F5F5F5;text-decoration:none;font-size:16px;line-height:24px">+38 067 487 16 37</a>
+          <a href="tel:+380986660386" style="color:#F5F5F5;text-decoration:none;font-size:16px;line-height:24px">+38 098 666 03 86</a>
+          <a href="mailto:office@welteco.com" style="color:#F5F5F5;text-decoration:none;font-size:16px;line-height:24px">office@welteco.com</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:72px;padding-top:16px;border-top:1px solid rgba(230,228,223,0.2);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.1px;line-height:18.12px;color:rgba(245,245,245,0.55)">
+      <span>© Welteco</span>
+      <a href="Site Under Update.dc.html" style="color:rgba(245,245,245,0.55)">{{ privacy }}</a>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:420},&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ua&quot;,&quot;en&quot;],&quot;default&quot;:&quot;ua&quot;,&quot;tsType&quot;:&quot;'ua'|'en'&quot;}}">
+class Component extends DCLogic {
+  state = { lang: null };
+  componentDidMount() {
+    this.onLang = (e) => this.setState({ lang: e.detail }); window.addEventListener("welteco-lang", this.onLang);
+    this.iv = setInterval(() => { if (window.WSITE && window.WCONTENT) { clearInterval(this.iv); this.forceUpdate(); } }, 50);
+  }
+  componentWillUnmount() { window.removeEventListener("welteco-lang", this.onLang); clearInterval(this.iv); }
+  renderVals() {
+    const S = window.WSITE, C = window.WCONTENT;
+    if (!S || !C) return { links: [], products: [] };
+    const lang = this.props.lang || this.state.lang || S.getLang(); const n = S.T[lang].nav; const t = C[lang];
+    return { links: [{ label: n.about, href: S.L.about }, { label: n.machines, href: S.L.machines }, { label: n.examples, href: S.L.examples }, { label: n.partners, href: S.L.partners }, { label: n.contacts, href: S.L.contacts }],
+      equipTitle: n.machines, products: S.PRODUCTS.map((p) => ({ label: p[lang].name, href: S.L.product(p.id) })), callTitle: t.contact.call, privacy: t.footer.privacy };
+  }
+}
+</script>
+</body>
+</html>

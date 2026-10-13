@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300;400;500;600;700&display=swap">
+<script src="content.js"></script>
+<script src="site-content.js"></script>
+<script src="image-slot.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0">
+<style>body{margin:0;background:#131518}*{box-sizing:border-box}a{color:#FFB869}a:hover{color:#F5F5F5}</style>
+</helmet>
+<div style="container-type:inline-size;background:#131518;color:#F5F5F5;font-family:'Funnel Sans',-apple-system,'Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased">
+  <dc-import name="Site Header" active="machines" lang="{{ lang }}" on-lang="{{ setLang }}" hint-size="100%,80px"></dc-import>
+
+  <section style="border-bottom:1px solid rgba(245,245,245,0.08)">
+    <div style="max-width:1428px;margin:0 auto;padding:clamp(40px,5cqw,72px) 20px clamp(48px,6cqw,88px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:clamp(32px,4cqw,64px);align-items:end">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <a href="Machines.dc.html" style="display:inline-flex;align-items:center;gap:8px;align-self:flex-start;color:rgba(245,245,245,0.7);text-decoration:none;font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;transition:color 200ms ease" style-hover="color:#FFB869">← {{ c.back }}</a>
+        <span style="align-self:flex-start;padding:8px 12px;border-radius:4px;background:#004394;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase">{{ p.kicker }}</span>
+        <h1 style="margin:0;font-size:clamp(40px,5.6cqw,88px);line-height:0.96;font-weight:500;letter-spacing:-0.02em;text-transform:uppercase;text-wrap:balance">{{ p.name }}</h1>
+        <p style="margin:0;max-width:640px;font-size:18px;line-height:27px;color:rgba(245,245,245,0.8);text-wrap:pretty">{{ p.lead }}</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <a href="#ask" style="display:inline-flex;align-items:center;gap:12px;padding:16px 22px;border-radius:4px;background:#FFB869;color:#131518;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.85">{{ c.ask }}<span style="font-size:18px;line-height:1">→</span></a>
+          <a href="#specs" style="display:inline-flex;padding:16px 22px;border-radius:4px;border:1px solid rgba(245,245,245,0.4);color:#F5F5F5;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.7">{{ c.specs }}</a>
+        </div>
+      </div>
+      <div style="position:relative;min-height:clamp(320px,34cqw,560px);border-radius:4px;overflow:hidden;background:#1A1D21;border:1px solid rgba(245,245,245,0.08)">
+        <div style="position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,184,105,0.14) 1px,transparent 1px),linear-gradient(90deg,rgba(255,184,105,0.14) 1px,transparent 1px);background-size:32px 32px;-webkit-mask-image:radial-gradient(circle at 0% 0%,#000 0%,transparent 60%);mask-image:radial-gradient(circle at 0% 0%,#000 0%,transparent 60%)"></div>
+        <image-slot id="{{ slotId }}" shape="rect" src="{{ image }}" placeholder="{{ placeholder }}" style="position:absolute;inset:0;display:block;width:100%;height:100%"></image-slot>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(64px,7cqw,112px) 0 0">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:16px">
+      <sc-for list="{{ blocks }}" as="b" hint-placeholder-count="2">
+        <div style="position:relative;overflow:hidden;padding:clamp(28px,2.6cqw,40px);border-radius:8px;background:linear-gradient(160deg,#1E2227 0%,#16191D 100%);border:1px solid rgba(245,245,245,0.08);display:flex;flex-direction:column;gap:20px;min-height:300px;transition:border-color 300ms ease" style-hover="border-color:rgba(255,184,105,0.35)">
+          <div style="position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,184,105,0.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,184,105,0.16) 1px,transparent 1px);background-size:32px 32px;background-position:right top;-webkit-mask-image:radial-gradient(circle at 100% 0%,#000 0%,rgba(0,0,0,0.5) 28%,transparent 62%);mask-image:radial-gradient(circle at 100% 0%,#000 0%,rgba(0,0,0,0.5) 28%,transparent 62%)"></div>
+          <div style="position:absolute;right:-80px;top:-80px;width:240px;height:240px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(255,184,105,0.14),transparent 70%)"></div>
+          <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px">
+            <span style="width:56px;height:56px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:rgba(255,184,105,0.1);border:1px solid rgba(255,184,105,0.3);color:#FFB869;font-family:'Material Symbols Outlined';font-size:30px;line-height:1;font-weight:300">{{ b.icon }}</span>
+            <span style="font-size:14px;line-height:19.6px;font-weight:500;letter-spacing:0.2px;color:rgba(245,245,245,0.5)">{{ b.n }}</span>
+          </div>
+          <div style="position:relative;display:flex;flex-direction:column;gap:12px;margin-top:auto">
+            <h2 style="margin:0;font-size:clamp(22px,1.8cqw,28px);line-height:1.15;font-weight:500;text-transform:uppercase;text-wrap:balance">{{ b.title }}</h2>
+            <p style="margin:0;max-width:560px;font-size:16px;line-height:25px;color:rgba(245,245,245,0.78);text-wrap:pretty">{{ b.text }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="specs" style="padding:clamp(64px,7cqw,112px) 0">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(32px,4cqw,64px);align-items:start">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <span style="align-self:flex-start;padding:8px 12px;border-radius:4px;background:#004394;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase">{{ c.specs }}</span>
+        <h2 style="margin:0;font-size:clamp(28px,3.2cqw,46px);line-height:1.04;font-weight:500;letter-spacing:-0.01em;text-transform:uppercase">{{ p.name }}</h2>
+        <sc-if value="{{ hasVideo }}" hint-placeholder-val="{{ false }}">
+          <video controls="" muted="" playsinline="" preload="metadata" src="{{ video }}" style="width:100%;border-radius:4px;background:#1A1D21;display:block;margin-top:12px"></video>
+        </sc-if>
+      </div>
+      <div style="display:flex;flex-direction:column;border-radius:8px;overflow:hidden;background:#1A1D21;border:1px solid rgba(245,245,245,0.1)">
+        <sc-for list="{{ specs }}" as="s" hint-placeholder-count="8">
+          <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-bottom:1px solid rgba(245,245,245,0.08)" style-hover="background:rgba(255,184,105,0.04)">
+            <span style="padding:16px 20px;border-right:1px solid rgba(245,245,245,0.08);font-size:14px;line-height:20px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.6)">{{ s.0 }}</span>
+            <span style="padding:16px 20px;font-size:17px;line-height:22px;font-weight:500">{{ s.1 }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <sc-if value="{{ hasLineup }}" hint-placeholder-val="{{ false }}">
+    <section style="padding:0 0 clamp(64px,7cqw,112px)">
+      <div style="max-width:1428px;margin:0 auto;padding:0 20px;display:flex;flex-direction:column;gap:24px">
+        <h2 style="margin:0;font-size:24px;line-height:29px;font-weight:500;text-transform:uppercase">{{ lineup.title }}</h2>
+        <div style="overflow-x:auto;border-radius:4px;border:1px solid rgba(245,245,245,0.1)">
+          <div style="min-width:560px;display:grid;grid-template-columns:repeat({{ lineupCols }},minmax(0,1fr));background:#1A1D21">
+            <sc-for list="{{ lineup.cols }}" as="h" hint-placeholder-count="4"><div style="padding:14px 16px;font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:#FFB869;border-bottom:1px solid rgba(245,245,245,0.14)">{{ h }}</div></sc-for>
+            <sc-for list="{{ lineupCells }}" as="cell" hint-placeholder-count="16"><div style="padding:14px 16px;font-size:16px;line-height:22px;font-weight:{{ cell.w }};border-bottom:1px solid rgba(245,245,245,0.08);background:{{ cell.bg }}">{{ cell.v }}</div></sc-for>
+          </div>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ hasMakes }}" hint-placeholder-val="{{ true }}">
+    <section style="padding:clamp(64px,7cqw,112px) 0;background:#1A1D21;border-top:1px solid rgba(245,245,245,0.08);border-bottom:1px solid rgba(245,245,245,0.08)">
+      <div style="max-width:1428px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(32px,4cqw,64px);align-items:start">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <span style="align-self:flex-start;padding:8px 12px;border-radius:4px;background:#004394;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase">{{ c.makes }}</span>
+          <h2 style="margin:0;font-size:clamp(26px,2.8cqw,40px);line-height:1.08;font-weight:500;text-transform:uppercase;text-wrap:balance">{{ c.makesIntro }}</h2>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <sc-for list="{{ makes }}" as="m" hint-placeholder-count="8">
+            <span style="display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:4px;background:#131518;border:1px solid rgba(245,245,245,0.1);font-size:15px;line-height:20px;font-weight:500;text-transform:uppercase;letter-spacing:0.2px"><span style="width:8px;height:8px;background:#FFB869"></span>{{ m }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ hasGallery }}" hint-placeholder-val="{{ false }}">
+    <section style="padding:clamp(64px,7cqw,112px) 0 0">
+      <div style="max-width:1428px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:6px">
+        <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="3">
+          <div style="aspect-ratio:4 / 3;border-radius:4px;background-image:url('{{ g }}');background-size:cover;background-position:50% 50%;background-color:#1A1D21"></div>
+        </sc-for>
+      </div>
+    </section>
+  </sc-if>
+
+  <section id="ask" style="padding:clamp(64px,7cqw,112px) 0 0">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px">
+      <div style="position:relative;overflow:hidden;border-radius:4px;background:#004394;padding:clamp(28px,4cqw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:32px;align-items:center">
+        <div style="position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.1) 1px,transparent 1px);background-size:32px 32px;-webkit-mask-image:radial-gradient(circle at 100% 100%,#000 0%,transparent 55%);mask-image:radial-gradient(circle at 100% 100%,#000 0%,transparent 55%)"></div>
+        <div style="position:relative;display:flex;flex-direction:column;gap:16px">
+          <h2 style="margin:0;font-size:clamp(26px,3cqw,42px);line-height:1.06;font-weight:500;text-transform:uppercase;text-wrap:balance">{{ p.ask }}</h2>
+          <p style="margin:0;font-size:15px;line-height:23px;color:rgba(245,245,245,0.8);max-width:640px;text-wrap:pretty">{{ c.rep }}</p>
+        </div>
+        <div style="position:relative;display:flex;justify-content:flex-end;flex-wrap:wrap;gap:8px">
+          <a href="Contacts.dc.html" style="display:inline-flex;align-items:center;gap:12px;padding:16px 22px;border-radius:4px;background:#FFB869;color:#131518;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.85">{{ c.ask }}<span style="font-size:18px;line-height:1">→</span></a>
+          <a href="tel:+380674871637" style="display:inline-flex;padding:16px 22px;border-radius:4px;border:1px solid rgba(245,245,245,0.5);color:#F5F5F5;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.7">+38 067 487 16 37</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(64px,7cqw,112px) 0">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px;display:flex;flex-direction:column;gap:24px">
+      <span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.6)">{{ c.related }}</span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:6px">
+        <sc-for list="{{ related }}" as="r" hint-placeholder-count="5">
+          <a href="{{ r.href }}" style="display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:150px;padding:20px;border-radius:4px;background:#1A1D21;border:1px solid rgba(245,245,245,0.08);color:#F5F5F5;text-decoration:none;transition:border-color 300ms ease" style-hover="border-color:rgba(255,184,105,0.5)">
+            <span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:#FFB869">{{ r.kicker }}</span>
+            <span style="display:flex;justify-content:space-between;align-items:flex-end;gap:12px"><span style="font-size:18px;line-height:22px;font-weight:500;text-transform:uppercase">{{ r.name }}</span><span style="font-size:18px;line-height:1">→</span></span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Site Footer" lang="{{ lang }}" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;product&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;vc3000&quot;,&quot;vc2000&quot;,&quot;vc4000&quot;,&quot;dnk100&quot;,&quot;md&quot;,&quot;ms&quot;],&quot;default&quot;:&quot;vc3000&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { lang: null, ready: false };
+  componentDidMount() {
+    this.iv = setInterval(() => { if (window.WSITE) { clearInterval(this.iv); this.setState({ ready: true }); } }, 50);
+    this.onLang = (e) => this.setState({ lang: e.detail }); window.addEventListener("welteco-lang", this.onLang);
+  }
+  componentWillUnmount() { clearInterval(this.iv); window.removeEventListener("welteco-lang", this.onLang); }
+  renderVals() {
+    const S = window.WSITE;
+    const lang = this.state.lang || (S ? S.getLang() : "ua");
+    const base = { lang, setLang: (l) => this.setState({ lang: l }), p: {}, c: {}, blocks: [], specs: [], makes: [], related: [], gallery: [], hasMakes: false, hasLineup: false, hasGallery: false, hasVideo: false, lineup: { cols: [] }, lineupCells: [], lineupCols: 1 };
+    if (!S) return base;
+    let id = this.props.product || "";
+    try { id = new URLSearchParams(window.location.search).get("id") || id; } catch (e) {}
+    const prod = S.PRODUCTS.find((x) => x.id === id) || S.PRODUCTS[0];
+    const p = prod[lang]; const c = S.T[lang].common;
+    const pad = (i) => String(i + 1).padStart(2, "0");
+    const lineup = p.lineup || null;
+    const cells = lineup ? lineup.rows.flatMap((r, ri) => r.map((v, ci) => ({ v, w: ci === 0 ? 500 : 400, bg: ri % 2 ? "rgba(255,255,255,0.02)" : "transparent" }))) : [];
+    return { ...base, p, c, image: prod.image || "", slotId: "product-" + prod.id, placeholder: (lang === "en" ? "Drop a photo of " : "Перетягніть фото ") + p.name,
+      blocks: p.blocks.map((b, i) => ({ ...b, n: pad(i), icon: ["savings", "touch_app", "construction", "conveyor_belt"][i % 4] })), specs: p.specs, makes: p.makes, hasMakes: p.makes.length > 0,
+      hasLineup: !!lineup, lineup: lineup || { cols: [], title: "" }, lineupCells: cells, lineupCols: lineup ? lineup.cols.length : 1,
+      gallery: prod.gallery, hasGallery: prod.gallery.length > 0, hasVideo: !!prod.video, video: prod.video || "",
+      related: S.PRODUCTS.filter((x) => x.id !== prod.id).map((x) => ({ name: x[lang].name, kicker: S.T[lang].groups[x.group], href: S.L.product(x.id) })) };
+  }
+}
+</script>
+</body>
+</html>

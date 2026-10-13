@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300;400;500;600;700&display=swap">
+<script src="content.js"></script>
+<script src="site-content.js"></script>
+<style>body{margin:0;background:#131518}*{box-sizing:border-box}a{color:#FFB869}a:hover{color:#F5F5F5}</style>
+</helmet>
+<section id="contact" style="container-type:inline-size;padding:clamp(80px,9cqw,128px) 0;background:#131518;color:#F5F5F5;font-family:'Funnel Sans',-apple-system,'Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased">
+  <div style="max-width:1428px;margin:0 auto;padding:0 20px">
+    <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));border:1px solid rgba(245,245,245,0.12);background:#1A1D21;box-shadow:0 30px 80px rgba(0,0,0,0.45)">
+      <span style="position:absolute;top:-12px;left:-12px;width:24px;height:24px;pointer-events:none"><span style="position:absolute;left:11px;top:0;width:2px;height:24px;background:#FFB869"></span><span style="position:absolute;top:11px;left:0;height:2px;width:24px;background:#FFB869"></span></span>
+      <span style="position:absolute;top:-12px;right:-12px;width:24px;height:24px;pointer-events:none"><span style="position:absolute;left:11px;top:0;width:2px;height:24px;background:#FFB869"></span><span style="position:absolute;top:11px;left:0;height:2px;width:24px;background:#FFB869"></span></span>
+      <span style="position:absolute;bottom:-12px;left:-12px;width:24px;height:24px;pointer-events:none"><span style="position:absolute;left:11px;top:0;width:2px;height:24px;background:#FFB869"></span><span style="position:absolute;top:11px;left:0;height:2px;width:24px;background:#FFB869"></span></span>
+      <span style="position:absolute;bottom:-12px;right:-12px;width:24px;height:24px;pointer-events:none"><span style="position:absolute;left:11px;top:0;width:2px;height:24px;background:#FFB869"></span><span style="position:absolute;top:11px;left:0;height:2px;width:24px;background:#FFB869"></span></span>
+      <div style="padding:clamp(28px,4cqw,64px) clamp(20px,3.4cqw,56px);display:flex;flex-direction:column;justify-content:space-between;gap:56px">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <span style="align-self:flex-start;padding:8px 12px;border-radius:4px;background:#004394;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase">{{ t.eyebrow }}</span>
+          <h2 style="margin:0;font-size:clamp(34px,4cqw,60px);line-height:1;font-weight:500;letter-spacing:-0.01em;text-transform:uppercase;text-wrap:balance">{{ title1 }}</h2>
+          <p style="margin:0;max-width:440px;font-size:20px;line-height:26px;color:#FFB869;text-wrap:pretty">{{ title2 }}</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));border-top:1px solid rgba(245,245,245,0.18)">
+          <div style="display:flex;align-items:flex-start;gap:14px;padding:20px 16px 4px 0;color:#F5F5F5">
+            <span style="width:48px;height:48px;flex-shrink:0;border-radius:4px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFB869" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg></span>
+            <span style="display:flex;flex-direction:column;gap:2px;min-width:0;padding-top:3px"><span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.7)">{{ phoneL }}</span><a href="tel:+380674871637" style="color:#F5F5F5;text-decoration:none;font-size:16px;line-height:22px;font-weight:500;white-space:nowrap;transition:color 200ms ease" style-hover="color:#FFB869">+38 067 487 16 37</a><a href="tel:+380986660386" style="color:#F5F5F5;text-decoration:none;font-size:16px;line-height:22px;font-weight:500;white-space:nowrap;transition:color 200ms ease" style-hover="color:#FFB869">+38 098 666 03 86</a></span>
+          </div>
+          <a href="mailto:office@welteco.com" style="display:flex;align-items:flex-start;gap:14px;padding:20px 16px 4px 0;color:#F5F5F5;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.75">
+            <span style="width:48px;height:48px;flex-shrink:0;border-radius:4px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFB869" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg></span>
+            <span style="display:flex;flex-direction:column;gap:2px;min-width:0;padding-top:3px"><span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.7)">Email</span><span style="font-size:16px;line-height:22px;font-weight:500">office@welteco.com</span></span>
+          </a>
+          <div style="display:flex;align-items:flex-start;gap:14px;padding:20px 0 4px">
+            <div style="display:flex;gap:6px">
+              <a href="https://wa.me/380674871637" style="width:48px;height:48px;border-radius:4px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);transition:background-color 200ms ease" style-hover="background-color:rgba(255,255,255,0.2)"><img src="assets/65e9f2479ebf7a9c6af4a117_whatsapp_icon-amber.svg" alt="WhatsApp" style="width:22px;height:22px"></a>
+              <a href="https://msng.link/o?Adik845=tg" style="width:48px;height:48px;border-radius:4px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);transition:background-color 200ms ease" style-hover="background-color:rgba(255,255,255,0.2)"><img src="assets/65e9f2471ab5b24547f21f1e_telegram-icon_1-amber.svg" alt="Telegram" style="width:22px;height:22px"></a>
+              <a href="https://msng.link/o?380674871637=vi" style="width:48px;height:48px;border-radius:4px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);transition:background-color 200ms ease" style-hover="background-color:rgba(255,255,255,0.2)"><img src="assets/65e9f24742938d7a06e22cdb_viber-white-icon__2__1-amber.svg" alt="Viber" style="width:22px;height:22px"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="padding:clamp(24px,3cqw,48px);background:#131518;border-left:1px solid rgba(245,245,245,0.1);display:flex;align-items:center">
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submit }}" style="width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:28px 20px">
+            <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.7)">{{ t.name }}</span><input required="" style="all:unset;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.4);color:#F5F5F5;font-size:16px;line-height:24px" style-focus="border-bottom-color:#FFB869"></label>
+            <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.7)">{{ t.phone }}</span><input required="" type="tel" style="all:unset;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.4);color:#F5F5F5;font-size:16px;line-height:24px" style-focus="border-bottom-color:#FFB869"></label>
+            <label style="grid-column:1 / -1;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.7)">{{ t.email }}</span><input required="" type="email" style="all:unset;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.4);color:#F5F5F5;font-size:16px;line-height:24px" style-focus="border-bottom-color:#FFB869"></label>
+            <label style="grid-column:1 / -1;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.7)">{{ t.message }}</span><textarea required="" defaultValue="{{ prefill }}" style="all:unset;min-height:96px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.4);color:#F5F5F5;font-size:16px;line-height:24px"></textarea></label>
+            <button type="submit" style="all:unset;grid-column:1 / -1;cursor:pointer;text-align:center;padding:16px;border-radius:4px;background:#FFB869;color:#131518;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;transition:opacity 200ms ease" style-hover="opacity:0.8">{{ t.submit }}</button>
+          </form>
+        </sc-if>
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="font-size:28px;line-height:33.6px;font-weight:500">{{ t.success.0 }}</div>
+            <div style="font-size:16px;line-height:24px">{{ t.success.1 }}</div>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:760},&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ua&quot;,&quot;en&quot;],&quot;default&quot;:&quot;ua&quot;,&quot;tsType&quot;:&quot;'ua'|'en'&quot;},&quot;title&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;subtitle&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;prefill&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { sent: false, lang: null };
+  componentDidMount() {
+    this.onLang = (e) => this.setState({ lang: e.detail }); window.addEventListener("welteco-lang", this.onLang);
+    this.iv = setInterval(() => { if (window.WSITE && window.WCONTENT) { clearInterval(this.iv); this.forceUpdate(); } }, 50);
+  }
+  componentWillUnmount() { window.removeEventListener("welteco-lang", this.onLang); clearInterval(this.iv); }
+  renderVals() {
+    const S = window.WSITE, C = window.WCONTENT;
+    const base = { sent: this.state.sent, notSent: !this.state.sent, submit: (e) => { e.preventDefault(); this.setState({ sent: true }); }, prefill: this.props.prefill || "" };
+    if (!S || !C) return base;
+    const lang = this.props.lang || this.state.lang || S.getLang(); const t = C[lang].contact;
+    return { ...base, t, title1: this.props.title || t.title1, title2: this.props.subtitle || t.title2, phoneL: lang === "en" ? "Phone" : "Телефон" };
+  }
+}
+</script>
+</body>
+</html>
