@@ -1,0 +1,73 @@
+/* Semantic aliases over the Figma variables in components/figma/fig-tokens.css. Values copied verbatim from the file. */
+:root{
+/* surfaces */
+--surface-page:var(--color-base-white);           /* #FFFCF7 warm off-white page */
+--surface-sand:var(--accent-secondary);            /* #F5EFEA badges, intro cards, tabs */
+--surface-card:var(--color-base-white);
+--surface-white:var(--color-white-solid);
+--surface-dark:var(--color-base-black);
+--surface-footer:var(--color-grey-3);              /* #080808 */
+--surface-glass:var(--color-white-10);             /* rgba(255,255,255,.1) + blur */
+--surface-glass-strong:var(--color-white-20);
+--surface-nav:var(--color-black-30);               /* rgba(0,0,0,.3) + blur(10px) */
+/* text */
+--text-strong:var(--color-base-black);
+--text-body:var(--color-grey-13);                  /* #222 */
+--text-inverse:var(--color-base-white);
+--text-accent:var(--accent);                       /* #413936 */
+--text-muted:var(--color-black-60);
+--text-navy:var(--color-azure-11);
+/* brand / action */
+--action-primary:var(--accent);                    /* #413936 espresso */
+--action-primary-text:var(--color-base-white);
+--action-secondary:var(--accent-secondary);
+--action-alert:var(--color-red-45);                /* #E60023 help badge hover */
+--link-blue:var(--color-azure-52);
+/* borders */
+--border-sand:var(--accent-secondary);
+--border-subtle:var(--color-neutral-shade-200);    /* #F2F0EB inputs, tabs */
+--border-faint:var(--color-neutral-shade-100);     /* #F7F5F0 blog card */
+--border-glass:var(--color-white-40);
+--border-on-dark:var(--color-neutral-shade-900);   /* #A6A5A1 */
+--divider-on-dark:var(--color-grey-64-20);
+/* radius (px) */
+--radius-2:2px;--radius-3:3px;--radius-4:4px;--radius-6:6px;--radius-8:8px;--radius-9:9px;--radius-12:12px;
+--radius-btn:4px;--radius-card:4px;--radius-icon-btn:6px;--radius-badge-pill:12px;
+/* spacing (px) */
+--space-2:2px;--space-4:4px;--space-6:6px;--space-8:8px;--space-12:12px;--space-16:16px;--space-24:24px;--space-32:32px;--space-48:48px;--space-96:96px;
+--section-pad-sm:48px;--section-pad-md:96px;--section-pad-lg:144px;
+--grid-gap:6px;
+/* layout (px) */
+--container-max:1428px;--container-xl:1138px;--container-lg:896px;--container-md:654px;--container-sm:480px;--page-gutter:20px;
+/* type scale (px) */
+--fs-display:90px;--lh-display:90px;
+--fs-h1:56px;--lh-h1:61.6px;
+--fs-h2:40px;--lh-h2:46px;
+--fs-h3:32px;--lh-h3:38.4px;
+--fs-h4:28px;--lh-h4:33.6px;
+--fs-h5:20px;--lh-h5:26px;
+--fs-lead:24px;--lh-lead:36px;
+--fs-body-lg:16px;--lh-body-lg:24px;
+--fs-body:14px;--lh-body:21px;
+--fs-nav:14px;--lh-nav:19.6px;
+--fs-caption:12.1px;--lh-caption:18.12px;
+--fs-eyebrow:14px;--ls-eyebrow:0.2px;
+--fs-tag:12px;--lh-tag:16.8px;
+/* effects */
+--shadow-card:0px 10px 12px 0px rgba(247,243,236,0.3);
+--shadow-badge:0px 0px 0px 1px rgba(0,0,0,0.1),0px 1px 3px 0px rgba(0,0,0,0.1);
+--blur-nav:blur(10px); /* @kind other */
+--blur-glass:blur(20px); /* @kind other */
+--blur-badges:blur(12px); /* @kind other */
+
+--overlay-hero:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),linear-gradient(180deg,rgba(0,0,0,0) 45%,rgb(0,0,0) 100%); /* @kind color */
+--overlay-banner:linear-gradient(180deg,rgba(0,0,0,0) 52%,rgb(0,0,0) 100%); /* @kind color */
+--overlay-image:rgba(0,0,0,0.5);
+/* motion */
+--hover-opacity-button:0.8; /* @kind other */
+--hover-opacity-link:0.5; /* @kind other */
+
+--ease-standard:ease; /* @kind other */
+--dur-fast:200ms; /* @kind other */
+
+}
