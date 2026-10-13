@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300;400;500;600;700&amp;display=swap">
+<script src="content.js"></script>
+<script src="site-content.js"></script>
+<script src="image-slot.js"></script>
+<style>@keyframes wMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}body{margin:0;background:#131518}*{box-sizing:border-box}a{color:#FFB869}a:hover{color:#F5F5F5}</style>
+</helmet>
+<div style="container-type:inline-size;background:#131518;color:#F5F5F5;font-family:'Funnel Sans',-apple-system,'Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden">
+
+  <section style="position:relative;min-height:clamp(740px,66cqw,960px);display:flex;flex-direction:column;background:#131518">
+    <video ref="{{ vidRef }}" autoplay="" muted="" loop="" playsinline="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><source src="assets/vibrocast-3000-stampo-canalina.mp4" type="video/mp4"><source src="https://raw.githubusercontent.com/Rostislav4r/welteco-website/main/site/assets/654e77817b1a00f16f8dbf4f_Hero-video-Welteco_CGM-transcode.mp4" type="video/mp4"><source src="https://raw.githubusercontent.com/Rostislav4r/welteco-website/main/site/assets/65f8aa8d950fb6027b252092_WELTECO-paertners-video-transcode.mp4" type="video/mp4"></video>
+    <div style="position:absolute;inset:0;background:linear-gradient(rgba(19,21,24,0.5),rgba(19,21,24,0.5)),linear-gradient(180deg,rgba(19,21,24,0.6) 0%,rgba(19,21,24,0) 30%,rgba(19,21,24,0) 50%,#131518 100%)"></div>
+    <header style="position:relative;z-index:5;border-bottom:1px solid rgba(245,245,245,0.14)">
+      <div style="max-width:1428px;margin:0 auto;padding:0 20px;height:80px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+        <img src="assets/65e9f1863a7cfee7941c6e94_welteco-logo__2_.svg" alt="Welteco" style="height:42px;width:auto;display:block">
+        <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+          <nav style="display:flex;align-items:center;gap:4px">
+            <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="4">
+              <a href="{{ n.href }}" style="padding:8px 14px;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase;color:#F5F5F5;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.5">{{ n.label }}</a>
+            </sc-for>
+          </nav>
+        </sc-if>
+        <div style="display:flex;align-items:center;gap:8px">
+          <div style="display:flex;padding:3px;border-radius:6px;border:1px solid rgba(245,245,245,0.2);background:rgba(255,255,255,0.06)">
+            <button onClick="{{ setUA }}" style="all:unset;cursor:pointer;padding:5px 9px;border-radius:4px;font-size:12px;line-height:16.8px;text-transform:uppercase;background:{{ uaBg }};color:{{ uaFg }}">ukr</button>
+            <button onClick="{{ setEN }}" style="all:unset;cursor:pointer;padding:5px 9px;border-radius:4px;font-size:12px;line-height:16.8px;text-transform:uppercase;background:{{ enBg }};color:{{ enFg }}">eng</button>
+          </div>
+          <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+            <a href="Contacts.dc.html" style="display:inline-flex;padding:12px 18px;border-radius:4px;background:#FFB869;color:#131518;font-size:14px;line-height:20px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.8">{{ t.nav.contact }}</a>
+          </sc-if>
+          <sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+            <button aria-label="Menu" style="all:unset;cursor:pointer;width:44px;height:44px;border-radius:6px;background:#FFB869;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px">
+              <span style="width:18px;height:2px;background:#131518"></span><span style="width:18px;height:2px;background:#131518"></span><span style="width:18px;height:2px;background:#131518"></span>
+            </button>
+          </sc-if>
+        </div>
+      </div>
+    </header>
+    <div style="position:relative;flex:1;min-width:0;width:100%;max-width:1428px;margin:0 auto;padding:48px 20px 40px;display:flex;flex-direction:column;justify-content:flex-end;gap:48px">
+      <div style="display:flex;flex-direction:column;gap:28px">
+        
+        <h1 style="margin:0;max-width:1180px;font-size:clamp(28px,7.4cqw,116px);line-height:0.94;overflow-wrap:anywhere;hyphens:auto;font-weight:500;letter-spacing:-0.02em;text-transform:uppercase;text-wrap:balance">{{ t.hero.title }}</h1>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:24px;max-width:520px">
+          <p style="margin:0;font-size:18px;line-height:26px;color:rgba(245,245,245,0.8);text-wrap:pretty">{{ t.hero.sub }}</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <a href="#contact" style="display:inline-flex;padding:16px 22px;border-radius:4px;background:#FFB869;color:#131518;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.8">{{ t.nav.contact }}</a>
+            <a href="Machines.dc.html" style="display:inline-flex;padding:16px 22px;border-radius:4px;border:1px solid rgba(245,245,245,0.4);color:#F5F5F5;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.7">{{ t.hero.cta }}</a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <div style="background:#FFB869;color:#131518">
+    <div style="max-width:1428px;margin:0 auto;padding:18px 20px;display:flex;flex-wrap:wrap;gap:10px 32px;align-items:center;justify-content:space-between">
+      <sc-for list="{{ cats }}" as="c" hint-placeholder-count="4">
+        <a href="{{ c.href }}" style="display:flex;align-items:center;gap:10px;color:#131518;text-decoration:none;font-size:14px;line-height:19.6px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;transition:opacity 200ms ease" style-hover="opacity:0.6"><span style="width:8px;height:8px;background:#131518"></span>{{ c.label }}</a>
+      </sc-for>
+    </div>
+  </div>
+
+  <section style="padding:clamp(80px,10cqw,144px) 0 clamp(64px,7cqw,104px)">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px">
+      <div style="display:flex;flex-wrap:wrap;gap:48px">
+        <div style="flex:1 1 560px;min-width:0;display:flex;flex-direction:column;gap:32px">
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <span style="padding:8px 12px;border-radius:4px;background:#004394;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase">{{ t.about.eyebrow }}</span>
+            <span style="padding:8px 12px;border-radius:4px;background:#FFB869;color:#131518;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase">{{ t.about.why }}</span>
+          </div>
+          <h2 style="margin:0;font-size:clamp(28px,3.4cqw,50px);line-height:1.08;font-weight:500;letter-spacing:-0.01em;text-wrap:balance">{{ t.about.title }}</h2>
+          <div style="display:flex;flex-direction:column;gap:16px;max-width:620px">
+            <sc-for list="{{ t.about.p }}" as="p" hint-placeholder-count="2">
+              <p style="margin:0;font-size:17px;line-height:26px;color:rgba(245,245,245,0.7);text-wrap:pretty">{{ p }}</p>
+            </sc-for>
+          </div>
+          <div><a href="About.dc.html" style="display:inline-flex;padding:12px 18px;border-radius:4px;background:#F5F5F5;color:#131518;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.8">{{ t.about.cta }}</a></div>
+        </div>
+        <div style="flex:1 1 420px;min-height:clamp(360px,36cqw,560px);border-radius:4px;overflow:hidden;background:#1A1D21"><image-slot id="about-photo" shape="rect" src="assets/about-concrete-rings.jpg" placeholder="Drop about-section photo" style="display:block;width:100%;height:100%;min-height:inherit"></image-slot></div>
+      </div>
+      <div style="margin-top:clamp(56px,6cqw,96px);display:grid;grid-template-columns:repeat(auto-fill,minmax(max(calc(25% - 5px),min(calc(50% - 3px),max(0px,(1040px - 100cqw)*1000)),min(100%,max(0px,(560px - 100cqw)*1000))),1fr));gap:6px">
+        <sc-for list="{{ features }}" as="f" hint-placeholder-count="4">
+          <div style="position:relative;min-height:clamp(240px,20cqw,300px);padding:24px;border-radius:4px;background:#131518;border:1px solid rgba(245,245,245,0.08);display:flex;flex-direction:column;justify-content:space-between;gap:40px;overflow:hidden;transition:border-color 300ms ease,background-color 300ms ease" style-hover="border-color:rgba(255,184,105,0.5);background-color:#1A1D21">
+            <div style="position:absolute;top:0;left:0;width:75%;height:80%;pointer-events:none;background-image:linear-gradient(rgba(255,184,105,0.32) 1px,transparent 1px),linear-gradient(90deg,rgba(255,184,105,0.32) 1px,transparent 1px);background-size:24px 24px;background-position:left -1px top -1px;-webkit-mask-image:radial-gradient(circle at 0% 0%,#000 0%,rgba(0,0,0,0.5) 35%,transparent 70%);mask-image:radial-gradient(circle at 0% 0%,#000 0%,rgba(0,0,0,0.5) 35%,transparent 70%)"></div>
+            <div style="position:absolute;left:0;top:0;width:100%;height:3px;background:#FFB869"></div>
+            <div style="position:relative;display:flex;justify-content:space-between;align-items:flex-start">
+              <span style="width:72px;height:72px;border-radius:4px;background:rgba(255,184,105,0.1);border:1px solid rgba(255,184,105,0.22);display:flex;align-items:center;justify-content:center"><img src="{{ f.icon }}" alt="" style="width:38px;height:38px;object-fit:contain"></span>
+              <span style="font-size:14px;line-height:19.6px;font-weight:500;color:#FFB869">{{ f.n }}</span>
+            </div>
+            <span style="position:relative;font-size:22px;line-height:27px;font-weight:500;text-transform:uppercase;text-wrap:balance">{{ f.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(72px,7cqw,112px) 0;background:#131518">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:6px">
+      <a href="Partners.dc.html" style="position:relative;min-height:clamp(340px,32cqw,480px);border-radius:4px;background:#1A1D21;border:1px solid rgba(245,245,245,0.08);display:flex;flex-direction:column;justify-content:space-between;padding:clamp(20px,2.4cqw,32px);text-decoration:none;color:#F5F5F5;overflow:hidden;transition:border-color 300ms ease" style-hover="border-color:rgba(255,184,105,0.5)">
+        <div style="position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,184,105,0.14) 1px,transparent 1px),linear-gradient(90deg,rgba(255,184,105,0.14) 1px,transparent 1px);background-size:32px 32px;background-position:center center;-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 0%,transparent 72%);mask-image:radial-gradient(ellipse at 50% 50%,#000 0%,transparent 72%)"></div>
+        <div style="position:relative;display:flex;justify-content:space-between;align-items:center;gap:16px">
+          <span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.6)">{{ partnerKicker }}</span>
+          <img src="assets/65da542e31d71fae16e008c7_arrow_icon-amber.svg" alt="" style="width:22px;height:22px">
+        </div>
+        <div style="position:relative;flex:1;display:flex;align-items:center;justify-content:center;padding:32px 0">
+          <img src="assets/partner-logo.svg" alt="IMER Group" style="width:clamp(280px,36cqw,520px);max-width:92%;height:auto;display:block">
+        </div>
+        <div style="position:relative;display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid rgba(245,245,245,0.14)">
+          <span style="width:8px;height:8px;background:#FFB869"></span>
+          <span style="font-size:14px;line-height:19.6px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase">{{ partnerNote }}</span>
+        </div>
+      </a>
+      <div style="border-radius:4px;background:#1A1D21;border:1px solid rgba(245,245,245,0.08);padding:clamp(24px,3cqw,48px);display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <span style="align-self:flex-start;padding:8px 12px;border-radius:4px;background:#004394;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase">{{ t.partners.eyebrow }}</span>
+          <h2 style="margin:0;font-size:clamp(26px,2.6cqw,38px);line-height:1.1;font-weight:500;text-transform:uppercase;text-wrap:balance">{{ partnerTitle }}</h2>
+        </div>
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{ partnerFacts }}" as="f" hint-placeholder-count="3">
+            <div style="display:flex;align-items:baseline;gap:20px;padding:16px 0;border-top:1px solid rgba(245,245,245,0.12)">
+              <span style="width:32px;flex-shrink:0;font-size:14px;line-height:19.6px;color:#FFB869">{{ f.n }}</span>
+              <span style="font-size:16px;line-height:24px;color:rgba(245,245,245,0.85)">{{ f.t }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div><a href="Partners.dc.html" style="display:inline-flex;align-items:center;gap:14px;padding:14px 20px;border-radius:4px;background:#FFB869;color:#131518;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.85">{{ t.partners.cta }}<span style="font-size:18px;line-height:1">→</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="offers" style="padding:clamp(80px,10cqw,144px) 0">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+        <h2 style="margin:0;font-size:clamp(36px,5cqw,72px);line-height:0.95;font-weight:500;letter-spacing:-0.02em;text-transform:uppercase">{{ t.offers.eyebrow }}</h2>
+        <a href="#contact" style="display:inline-flex;padding:12px 18px;border-radius:4px;background:#FFB869;color:#131518;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.8">{{ t.offers.cta }}</a>
+      </div>
+      <a href="Machines.dc.html" style="margin-top:48px;position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;min-height:clamp(420px,42cqw,640px);padding:clamp(24px,3cqw,40px);border-radius:4px;overflow:hidden;text-decoration:none;background:#131518 url('assets/imer-machine.jpg') 50% 55% / cover no-repeat">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(19,21,24,0) 35%,rgba(19,21,24,0.92) 100%)"></div>
+        <div style="position:relative;display:flex;flex-direction:column;gap:14px;max-width:760px">
+          <span style="font-size:14px;line-height:19.6px;color:#FFB869">01</span>
+          <h3 style="margin:0;font-size:clamp(28px,3.4cqw,50px);line-height:1.02;font-weight:500;text-transform:uppercase;color:#F5F5F5;text-wrap:balance">{{ t.offers.featured }}</h3>
+        </div>
+        <span style="position:relative;width:64px;height:64px;border-radius:4px;background:#FFB869;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="width:20px;height:20px;border-top:3px solid #131518;border-right:3px solid #131518"></span></span>
+      </a>
+      <div style="margin-top:24px;display:flex;flex-direction:column">
+        <sc-for list="{{ offers }}" as="o" hint-placeholder-count="5">
+          <a href="{{ o.href }}" style="display:flex;align-items:center;gap:24px;padding:22px 0;border-top:1px solid rgba(245,245,245,0.14);color:#F5F5F5;text-decoration:none;transition:padding 300ms ease,background-color 300ms ease" style-hover="padding-left:16px;background-color:rgba(0,67,148,0.28)">
+            <span style="width:48px;flex-shrink:0;font-size:14px;line-height:19.6px;color:#FFB869">{{ o.n }}</span>
+            <span style="flex:1;min-width:0;font-size:clamp(20px,2.2cqw,32px);line-height:1.15;font-weight:500;text-transform:uppercase;text-wrap:balance">{{ o.title }}</span>
+            <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+              <span style="width:200px;height:120px;flex-shrink:0;border-radius:4px;background-image:url('{{ o.img }}');background-size:cover;background-position:50% 50%"></span>
+            </sc-if>
+            <img src="assets/65da542e31d71fae16e008c7_arrow_icon-amber.svg" alt="" style="width:22px;height:22px;flex-shrink:0">
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative;padding:clamp(80px,8cqw,128px) 0 clamp(64px,6cqw,96px);background:#131518;color:#F5F5F5;overflow:hidden;border-top:1px solid rgba(245,245,245,0.08)">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:32px 48px;align-items:end">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <span style="align-self:flex-start;display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:4px;background:#004394;color:#F5F5F5;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase"><span style="width:6px;height:6px;border-radius:3px;background:#FFB869"></span>{{ t.nav.products }}</span>
+        <h2 style="margin:0;font-size:clamp(28px,3.2cqw,46px);line-height:1.04;font-weight:500;letter-spacing:-0.01em;text-transform:uppercase;text-wrap:balance">{{ t.strip.title }}</h2>
+      </div>
+      <div style="display:flex;justify-content:flex-end;align-items:flex-end;gap:16px;flex-wrap:wrap">
+        <a href="Product Examples.dc.html" style="display:inline-flex;align-items:center;gap:14px;padding:16px 22px;border-radius:4px;background:#FFB869;color:#131518;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.85">{{ t.strip.cta }}<span style="font-size:18px;line-height:1">→</span></a>
+      </div>
+    </div>
+    <div style="position:relative;margin-top:clamp(48px,5cqw,72px);padding:4px 0">
+      {{ marquee }}
+      <div style="position:absolute;inset:0 auto 0 0;width:clamp(40px,8cqw,140px);pointer-events:none;background:linear-gradient(90deg,#131518,rgba(19,21,24,0))"></div>
+      <div style="position:absolute;inset:0 0 0 auto;width:clamp(40px,8cqw,140px);pointer-events:none;background:linear-gradient(270deg,#131518,rgba(19,21,24,0))"></div>
+    </div>
+  </section>
+
+  <section id="contact" style="padding:clamp(80px,9cqw,128px) 0;background:#131518">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px">
+     <div style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));border:1px solid rgba(245,245,245,0.12);background:#1A1D21;box-shadow:0 30px 80px rgba(0,0,0,0.45)">
+      <span style="position:absolute;top:-12px;left:-12px;width:24px;height:24px;pointer-events:none"><span style="position:absolute;left:11px;top:0;width:2px;height:24px;background:#FFB869"></span><span style="position:absolute;top:11px;left:0;height:2px;width:24px;background:#FFB869"></span></span>
+      <span style="position:absolute;top:-12px;right:-12px;width:24px;height:24px;pointer-events:none"><span style="position:absolute;left:11px;top:0;width:2px;height:24px;background:#FFB869"></span><span style="position:absolute;top:11px;left:0;height:2px;width:24px;background:#FFB869"></span></span>
+      <span style="position:absolute;bottom:-12px;left:-12px;width:24px;height:24px;pointer-events:none"><span style="position:absolute;left:11px;top:0;width:2px;height:24px;background:#FFB869"></span><span style="position:absolute;top:11px;left:0;height:2px;width:24px;background:#FFB869"></span></span>
+      <span style="position:absolute;bottom:-12px;right:-12px;width:24px;height:24px;pointer-events:none"><span style="position:absolute;left:11px;top:0;width:2px;height:24px;background:#FFB869"></span><span style="position:absolute;top:11px;left:0;height:2px;width:24px;background:#FFB869"></span></span>
+      <div style="padding:clamp(28px,4cqw,64px) clamp(20px,3.4cqw,56px);display:flex;flex-direction:column;justify-content:space-between;gap:56px">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <span style="align-self:flex-start;padding:8px 12px;border-radius:4px;background:#004394;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase">{{ t.contact.eyebrow }}</span>
+          <h2 style="margin:0;font-size:clamp(34px,4cqw,60px);line-height:1;font-weight:500;letter-spacing:-0.01em;text-transform:uppercase;text-wrap:balance">{{ t.contact.title1 }}</h2>
+          <p style="margin:0;max-width:440px;font-size:20px;line-height:26px;color:#FFB869;text-wrap:pretty">{{ t.contact.title2 }}</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));border-top:1px solid rgba(245,245,245,0.18)">
+          <div style="display:flex;align-items:center;gap:14px;padding:20px 16px 4px 0;color:#F5F5F5">
+            <span style="width:48px;height:48px;flex-shrink:0;border-radius:4px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFB869" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg></span>
+            <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.7)">{{ phoneL }}</span><a href="tel:+380674871637" style="color:#F5F5F5;text-decoration:none;font-size:16px;line-height:22px;font-weight:500;white-space:nowrap;transition:color 200ms ease" style-hover="color:#FFB869">+38 067 487 16 37</a><a href="tel:+380986660386" style="color:#F5F5F5;text-decoration:none;font-size:16px;line-height:22px;font-weight:500;white-space:nowrap;transition:color 200ms ease" style-hover="color:#FFB869">+38 098 666 03 86</a></span>
+          </div>
+          <a href="mailto:office@welteco.com" style="display:flex;align-items:center;gap:14px;padding:20px 16px 4px 0;color:#F5F5F5;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.75">
+            <span style="width:48px;height:48px;flex-shrink:0;border-radius:4px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFB869" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg></span>
+            <span style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.7)">Email</span><span style="font-size:16px;line-height:22px;font-weight:500">office@welteco.com</span></span>
+          </a>
+          <div style="display:flex;align-items:center;gap:14px;padding:20px 0 4px">
+            <div style="display:flex;gap:6px">
+              <a href="https://wa.me/380674871637" style="width:48px;height:48px;border-radius:4px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);transition:background-color 200ms ease" style-hover="background-color:rgba(255,255,255,0.2)"><img src="assets/65e9f2479ebf7a9c6af4a117_whatsapp_icon-amber.svg" alt="WhatsApp" style="width:22px;height:22px"></a>
+              <a href="https://msng.link/o?Adik845=tg" style="width:48px;height:48px;border-radius:4px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);transition:background-color 200ms ease" style-hover="background-color:rgba(255,255,255,0.2)"><img src="assets/65e9f2471ab5b24547f21f1e_telegram-icon_1-amber.svg" alt="Telegram" style="width:22px;height:22px"></a>
+              <a href="https://msng.link/o?380674871637=vi" style="width:48px;height:48px;border-radius:4px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);transition:background-color 200ms ease" style-hover="background-color:rgba(255,255,255,0.2)"><img src="assets/65e9f24742938d7a06e22cdb_viber-white-icon__2__1-amber.svg" alt="Viber" style="width:22px;height:22px"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="padding:clamp(24px,3cqw,48px);background:#131518;border-left:1px solid rgba(245,245,245,0.1);display:flex;align-items:center">
+      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submit }}" style="width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:28px 20px">
+          <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.7)">{{ t.contact.name }}</span><input required="" style="all:unset;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.4);color:#F5F5F5;font-size:16px;line-height:24px" style-focus="border-bottom-color:#FFB869"></label>
+          <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.7)">{{ t.contact.phone }}</span><input required="" type="tel" style="all:unset;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.4);color:#F5F5F5;font-size:16px;line-height:24px" style-focus="border-bottom-color:#FFB869"></label>
+          <label style="grid-column:1 / -1;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.7)">{{ t.contact.email }}</span><input required="" type="email" style="all:unset;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.4);color:#F5F5F5;font-size:16px;line-height:24px" style-focus="border-bottom-color:#FFB869"></label>
+          <label style="grid-column:1 / -1;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.7)">{{ t.contact.message }}</span><textarea required="" style="all:unset;min-height:96px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.4);color:#F5F5F5;font-size:16px;line-height:24px" style-focus="border-bottom-color:#FFB869"></textarea></label>
+          <button type="submit" style="all:unset;grid-column:1 / -1;cursor:pointer;text-align:center;padding:16px;border-radius:4px;background:#FFB869;color:#131518;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;transition:opacity 200ms ease" style-hover="opacity:0.8">{{ t.contact.submit }}</button>
+        </form>
+      </sc-if>
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:28px;line-height:33.6px;font-weight:500">{{ t.contact.success.0 }}</div>
+          <div style="font-size:16px;line-height:24px">{{ t.contact.success.1 }}</div>
+        </div>
+      </sc-if>
+      </div>
+     </div>
+    </div>
+  </section>
+
+  <footer style="background:#131518">
+    <div style="max-width:1428px;margin:0 auto;padding:clamp(64px,7cqw,96px) 20px 24px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:48px">
+        <img src="assets/65e9f1863a7cfee7941c6e94_welteco-logo__2_.svg" alt="Welteco" style="height:52px;width:auto;justify-self:start">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.55)">Welteco</span>
+          <div style="display:flex;flex-direction:column;gap:8px"><sc-for list="{{ footLinks }}" as="l" hint-placeholder-count="4"><a href="{{ l.href }}" style="color:#F5F5F5;text-decoration:none;font-size:16px;line-height:24px;transition:opacity 200ms ease" style-hover="opacity:0.6">{{ l.label }}</a></sc-for></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.55)">{{ t.footer.offersTitle }}</span>
+          <div style="display:flex;flex-direction:column;gap:8px"><sc-for list="{{ footProducts }}" as="l" hint-placeholder-count="6"><a href="{{ l.href }}" style="color:#F5F5F5;text-decoration:none;font-size:16px;line-height:24px;transition:opacity 200ms ease" style-hover="opacity:0.6">{{ l.label }}</a></sc-for></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.55)">{{ t.contact.call }}</span>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <a href="tel:+380674871637" style="color:#F5F5F5;text-decoration:none;font-size:16px;line-height:24px">+38 067 487 16 37</a>
+            <a href="tel:+380986660386" style="color:#F5F5F5;text-decoration:none;font-size:16px;line-height:24px">+38 098 666 03 86</a>
+            <a href="mailto:office@welteco.com" style="color:#F5F5F5;text-decoration:none;font-size:16px;line-height:24px">office@welteco.com</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:72px;padding-top:16px;border-top:1px solid rgba(230,228,223,0.2);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.1px;line-height:18.12px;color:rgba(245,245,245,0.55)">
+        <span>© Welteco</span>
+        <a href="Site Under Update.dc.html" style="color:rgba(245,245,245,0.55)">{{ t.footer.privacy }}</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ua&quot;,&quot;en&quot;],&quot;default&quot;:&quot;ua&quot;,&quot;tsType&quot;:&quot;'ua'|'en'&quot;},&quot;mobile&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { lang: null, sent: false, ready: !!window.WCONTENT };
+  componentDidMount() {
+    if (!window.WCONTENT) this.iv = setInterval(() => { if (window.WCONTENT) { clearInterval(this.iv); this.setState({ ready: true }); } }, 50);
+  }
+  componentWillUnmount() { clearInterval(this.iv); }
+  renderVals() {
+    const mobile = !!this.props.mobile;
+    const lang = this.state.lang || this.props.lang || (window.WSITE ? window.WSITE.getLang() : "ua");
+    const base = { vidRef: this.vidRef || (this.vidRef = (el) => { if (el) { el.muted = true; const p = el.play(); if (p) p.catch(() => {}); } }), mobile, desktop: !mobile, setUA: () => { if (window.WSITE) window.WSITE.setLang("ua"); this.setState({ lang: "ua" }); }, setEN: () => { if (window.WSITE) window.WSITE.setLang("en"); this.setState({ lang: "en" }); },
+      uaBg: lang === "ua" ? "#004394" : "transparent", uaFg: lang === "ua" ? "#F5F5F5" : "#F5F5F5",
+      enBg: lang === "en" ? "#004394" : "transparent", enFg: lang === "en" ? "#F5F5F5" : "#F5F5F5",
+      sent: this.state.sent, notSent: !this.state.sent, submit: (e) => { e.preventDefault(); this.setState({ sent: true }); } };
+    const C = window.WCONTENT;
+    if (!C) return base;
+    const t = C[lang];
+    const pad = (i) => String(i).padStart(2, "0");
+    const en = lang === "en";
+    const notes = en ? ["40+ years of manufacturing", "Official representative in Ukraine", "Since 1970"] : ["Понад 40 років виробництва", "Офіційний представник в Україні", "З 1970 року"];
+    return { ...base, t, partnerKicker: en ? "Partner" : "Партнер", partnerTitle: en ? "We partner with IMER Group, a recognised leader in the industry" : "Ми співпрацюємо з IMER Group, визнаним лідером у галузі", partnerNote: notes[1],
+      partnerFacts: en ? [{ n: "01", t: "Vibro-forming machines and moulds" }, { n: "02", t: "Installation, launch and service by Welteco" }, { n: "03", t: "Spare parts and technical support" }]
+        : [{ n: "01", t: "Віброформувальні машини та форми" }, { n: "02", t: "Монтаж, запуск і сервіс від Welteco" }, { n: "03", t: "Запчастини та технічна підтримка" }], phoneL: en ? "Phone" : "Телефон",
+      navItems: [{ label: t.nav.about, href: "About.dc.html" }, { label: en ? "Equipment" : "Обладнання", href: "Machines.dc.html" }, { label: t.nav.products, href: "Product Examples.dc.html" }, { label: en ? "Partner" : "Партнер", href: "Partners.dc.html" }],
+      stats: en ? [{ v: "14", l: "years in the market" }] : [{ v: "14", l: "років на ринку" }],
+      cats: t.hero.cats.map((label, i) => ({ n: pad(i + 1), label, href: i < 2 ? "Machines.dc.html" : "Contacts.dc.html" })),
+      features: t.about.features.map((label, i) => ({ label, n: pad(i + 1), icon: i === 2 ? "assets/icon-years-amber.svg" : C.FEATURE_ICONS[i].replace(".svg", "-amber.svg") })),
+      partners: ["Cacciamani", "CGM", "WiTech"].map((name, i) => ({ name, note: notes[i], logo: C.PARTNER_LOGOS[i], noLogo: !C.PARTNER_LOGOS[i] })),
+      offers: t.offers.items.slice(0, 4).map((title, i) => ({ title, i, img: i === 2 ? "uploads/01_машина_в_роботі.jpg" : C.OFFER_IMAGES[i] })).filter(o => o.i !== 1).map((o, k) => ({ ...o, n: pad(k + 2), href: o.i === 0 ? "Machines.dc.html" : "Contacts.dc.html" })),
+      marquee: this.marquee || (this.marquee = React.createElement("div", { style: { display: "flex", gap: 8, width: "max-content", animation: "wMarquee 70s linear infinite" } },
+        [...C.STRIP, ...C.STRIP].map((src, i) => React.createElement("div", { key: i, style: { width: mobile ? 168 : 232, height: mobile ? 168 : 232, flexShrink: 0, borderRadius: 8, background: "#004394", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" } },
+          React.createElement("img", { src, alt: "", style: { maxWidth: "80%", maxHeight: "80%", objectFit: "contain" } }))))),
+      footLinks: [[t.nav.about, "About.dc.html"], [en ? "Equipment" : "Обладнання", "Machines.dc.html"], [t.nav.products, "Product Examples.dc.html"], [en ? "Partner" : "Партнер", "Partners.dc.html"], [en ? "Contacts" : "Контакти", "Contacts.dc.html"]].map((l) => ({ label: l[0], href: l[1] })),
+      footProducts: (window.WSITE ? window.WSITE.PRODUCTS : []).map((p) => ({ label: p[lang].name, href: "Product.dc.html?id=" + p.id })) };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300;400;500;600;700&display=swap">
+<script src="content.js"></script>
+<script src="site-content.js"></script>
+<style>body{margin:0;background:#131518}*{box-sizing:border-box}a{color:#FFB869}a:hover{color:#F5F5F5}</style>
+</helmet>
+<div style="container-type:inline-size;background:#131518;color:#F5F5F5;font-family:'Funnel Sans',-apple-system,'Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased">
+  <dc-import name="Site Header" active="partners" lang="{{ lang }}" on-lang="{{ setLang }}" hint-size="100%,80px"></dc-import>
+
+  <section style="border-bottom:1px solid rgba(245,245,245,0.08)">
+    <div style="max-width:1428px;margin:0 auto;padding:clamp(40px,5cqw,72px) 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:6px">
+      <div style="position:relative;min-height:clamp(320px,32cqw,480px);border-radius:4px;background:#1A1D21;border:1px solid rgba(245,245,245,0.08);display:flex;flex-direction:column;justify-content:space-between;padding:clamp(20px,2.4cqw,32px);overflow:hidden">
+        <div style="position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,184,105,0.14) 1px,transparent 1px),linear-gradient(90deg,rgba(255,184,105,0.14) 1px,transparent 1px);background-size:32px 32px;background-position:center center;-webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 0%,transparent 72%);mask-image:radial-gradient(ellipse at 50% 50%,#000 0%,transparent 72%)"></div>
+        <span style="position:relative;font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.6)">{{ p.kicker }}</span>
+        <div style="position:relative;flex:1;display:flex;align-items:center;justify-content:center;padding:32px 0"><img src="assets/partner-logo.svg" alt="IMER Group" style="width:clamp(260px,32cqw,460px);max-width:92%;height:auto;display:block"></div>
+        <div style="position:relative;display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid rgba(245,245,245,0.14)"><span style="width:8px;height:8px;background:#FFB869"></span><span style="font-size:14px;line-height:19.6px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase">{{ note }}</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;justify-content:center;gap:24px;padding:clamp(20px,3cqw,48px)">
+        <h1 style="margin:0;font-size:clamp(40px,5.6cqw,88px);line-height:0.96;font-weight:500;letter-spacing:-0.02em;text-transform:uppercase">{{ p.h1 }}</h1>
+        <p style="margin:0;font-size:clamp(20px,1.8cqw,26px);line-height:1.3;font-weight:500;text-wrap:pretty">{{ p.title }}</p>
+        <sc-for list="{{ p.p }}" as="t" hint-placeholder-count="2"><p style="margin:0;max-width:640px;font-size:17px;line-height:26px;color:rgba(245,245,245,0.78);text-wrap:pretty">{{ t }}</p></sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(64px,7cqw,112px) 0 0">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px;display:flex;flex-direction:column;gap:24px">
+      <span style="align-self:flex-start;padding:8px 12px;border-radius:4px;background:#004394;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase">{{ p.servicesTitle }}</span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:6px">
+        <sc-for list="{{ services }}" as="s" hint-placeholder-count="5">
+          <div style="position:relative;overflow:hidden;min-height:160px;padding:20px;border-radius:4px;background:#1A1D21;border:1px solid rgba(245,245,245,0.08);display:flex;flex-direction:column;justify-content:space-between;gap:24px">
+            <div style="position:absolute;left:0;top:0;width:100%;height:3px;background:#FFB869"></div>
+            <span style="font-size:14px;line-height:19.6px;font-weight:500;color:#FFB869">{{ s.n }}</span>
+            <span style="font-size:20px;line-height:25px;font-weight:500;text-transform:uppercase;text-wrap:balance">{{ s.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(64px,7cqw,112px) 0">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px;display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+        <h2 style="margin:0;font-size:clamp(28px,3.2cqw,46px);line-height:1.04;font-weight:500;letter-spacing:-0.01em;text-transform:uppercase">{{ p.rangeTitle }}</h2>
+        <a href="Machines.dc.html" style="display:inline-flex;padding:12px 18px;border-radius:4px;border:1px solid rgba(245,245,245,0.4);color:#F5F5F5;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.7">{{ nav.machines }}</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:6px">
+        <sc-for list="{{ products }}" as="r" hint-placeholder-count="6">
+          <a href="{{ r.href }}" style="position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:clamp(240px,22cqw,320px);padding:20px;border-radius:4px;overflow:hidden;background:#1A1D21;border:1px solid rgba(245,245,245,0.08);color:#F5F5F5;text-decoration:none;transition:border-color 300ms ease" style-hover="border-color:rgba(255,184,105,0.5)">
+            <sc-if value="{{ r.hasImage }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;inset:0;background-image:url('{{ r.image }}');background-size:cover;background-position:50% 50%"></div></sc-if>
+            <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(19,21,24,0.1) 0%,rgba(19,21,24,0.92) 100%)"></div>
+            <span style="position:relative;font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:#FFB869">{{ r.kicker }}</span>
+            <span style="position:relative;margin-top:8px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px"><span style="font-size:22px;line-height:26px;font-weight:500;text-transform:uppercase">{{ r.name }}</span><span style="font-size:18px;line-height:1">→</span></span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Contact Block" lang="{{ lang }}" hint-size="100%,760px"></dc-import>
+  <dc-import name="Site Footer" lang="{{ lang }}" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: null, ready: false };
+  componentDidMount() {
+    this.iv = setInterval(() => { if (window.WSITE) { clearInterval(this.iv); this.setState({ ready: true }); } }, 50);
+    this.onLang = (e) => this.setState({ lang: e.detail }); window.addEventListener("welteco-lang", this.onLang);
+  }
+  componentWillUnmount() { clearInterval(this.iv); window.removeEventListener("welteco-lang", this.onLang); }
+  renderVals() {
+    const S = window.WSITE;
+    const lang = this.state.lang || (S ? S.getLang() : "ua");
+    const base = { lang, setLang: (l) => this.setState({ lang: l }), p: { p: [] }, nav: {}, services: [], products: [] };
+    if (!S) return base;
+    const T = S.T[lang]; const p = T.partners;
+    return { ...base, p, nav: T.nav, note: lang === "en" ? "Official representative in Ukraine" : "Офіційний представник в Україні",
+      services: p.services.map((label, i) => ({ label, n: String(i + 1).padStart(2, "0") })),
+      products: S.PRODUCTS.map((x) => ({ name: x[lang].name, kicker: T.groups[x.group], href: S.L.product(x.id), image: x.image || "", hasImage: !!x.image })) };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300;400;500;600;700&display=swap">
+<script src="content.js"></script>
+<script src="site-content.js"></script>
+<style>body{margin:0;background:#131518}*{box-sizing:border-box}a{color:#FFB869}a:hover{color:#F5F5F5}</style>
+</helmet>
+<div style="container-type:inline-size;background:#131518;color:#F5F5F5;font-family:'Funnel Sans',-apple-system,'Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased">
+  <dc-import name="Site Header" active="about" lang="{{ lang }}" on-lang="{{ setLang }}" hint-size="100%,80px"></dc-import>
+
+  <section style="display:flex;flex-wrap:wrap;align-items:stretch;border-bottom:1px solid rgba(245,245,245,0.08)">
+    <div style="flex:1 1 600px;min-width:0;padding:clamp(48px,6cqw,96px) clamp(20px,3cqw,64px) clamp(48px,6cqw,96px) max(20px,calc((100cqw - 1428px) / 2 + 20px));display:flex;flex-direction:column;gap:28px;justify-content:center">
+      <span style="align-self:flex-start;padding:8px 12px;border-radius:4px;background:#004394;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase">{{ a.eyebrow }}</span>
+      <h1 style="margin:0;font-size:clamp(36px,4.4cqw,68px);line-height:1;font-weight:500;letter-spacing:-0.015em;text-transform:uppercase;text-wrap:balance">{{ a.h1 }}</h1>
+      <p style="margin:0;max-width:720px;font-size:clamp(20px,1.8cqw,26px);line-height:1.3;font-weight:500;text-wrap:pretty">{{ a.title }}</p>
+      <p style="margin:0;max-width:640px;font-size:17px;line-height:26px;color:rgba(245,245,245,0.78);text-wrap:pretty">{{ a.p }}</p>
+      <div><a href="Machines.dc.html" style="display:inline-flex;align-items:center;gap:12px;padding:14px 20px;border-radius:4px;background:#FFB869;color:#131518;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.85">{{ s.cta }}<span style="font-size:18px;line-height:1">→</span></a></div>
+    </div>
+    <div style="flex:1 1 420px;min-height:clamp(380px,50cqw,680px);position:relative;background:#1A1D21 url('assets/about-concrete-rings.jpg') 50% 50% / cover no-repeat">
+      <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#131518 0%,rgba(19,21,24,0) 22%)"></div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(64px,7cqw,112px) 0">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(32px,4cqw,64px);align-items:start">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <span style="align-self:flex-start;padding:8px 12px;border-radius:4px;background:#004394;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase">{{ t.about.why }}</span>
+        <h2 style="margin:0;font-size:clamp(28px,3.2cqw,46px);line-height:1.04;font-weight:500;letter-spacing:-0.01em;text-transform:uppercase;text-wrap:balance">{{ t.about.title }}</h2>
+        <sc-for list="{{ t.about.p }}" as="p" hint-placeholder-count="2"><p style="margin:0;font-size:16px;line-height:25px;color:rgba(245,245,245,0.78);text-wrap:pretty">{{ p }}</p></sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,max(220px,calc(50% - 3px))),1fr));gap:6px">
+        <sc-for list="{{ features }}" as="f" hint-placeholder-count="4">
+          <div style="position:relative;min-height:220px;padding:24px;border-radius:4px;background:#1A1D21;border:1px solid rgba(245,245,245,0.08);display:flex;flex-direction:column;justify-content:space-between;gap:32px;overflow:hidden;transition:border-color 300ms ease" style-hover="border-color:rgba(255,184,105,0.5)">
+            <div style="position:absolute;top:0;left:0;width:75%;height:80%;pointer-events:none;background-image:linear-gradient(rgba(255,184,105,0.32) 1px,transparent 1px),linear-gradient(90deg,rgba(255,184,105,0.32) 1px,transparent 1px);background-size:24px 24px;background-position:left -1px top -1px;-webkit-mask-image:radial-gradient(circle at 0% 0%,#000 0%,rgba(0,0,0,0.5) 35%,transparent 70%);mask-image:radial-gradient(circle at 0% 0%,#000 0%,rgba(0,0,0,0.5) 35%,transparent 70%)"></div>
+            <div style="position:absolute;left:0;top:0;width:100%;height:3px;background:#FFB869"></div>
+            <div style="position:relative;display:flex;justify-content:space-between;align-items:flex-start">
+              <span style="width:64px;height:64px;border-radius:4px;background:rgba(255,184,105,0.1);border:1px solid rgba(255,184,105,0.22);display:flex;align-items:center;justify-content:center"><img src="{{ f.icon }}" alt="" style="width:34px;height:34px;object-fit:contain"></span>
+              <span style="font-size:14px;line-height:19.6px;font-weight:500;color:#FFB869">{{ f.n }}</span>
+            </div>
+            <span style="position:relative;font-size:20px;line-height:25px;font-weight:500;text-transform:uppercase;text-wrap:balance">{{ f.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:0 0 clamp(64px,7cqw,112px)">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px;display:flex;flex-direction:column">
+      <sc-for list="{{ list }}" as="l" hint-placeholder-count="7">
+        <a href="{{ l.href }}" style="display:grid;grid-template-columns:56px minmax(0,1fr) 28px;align-items:center;gap:16px;padding:22px 0;border-top:1px solid rgba(245,245,245,0.14);color:#F5F5F5;text-decoration:none;transition:padding 300ms ease,background-color 300ms ease" style-hover="padding-left:16px;background-color:rgba(0,67,148,0.28)">
+          <span style="font-size:14px;line-height:19.6px;color:#FFB869">{{ l.n }}</span>
+          <span style="font-size:clamp(18px,1.8cqw,26px);line-height:1.2;font-weight:500;text-transform:uppercase;text-wrap:balance">{{ l.label }}</span>
+          <span style="font-size:20px;line-height:1;color:#FFB869">→</span>
+        </a>
+      </sc-for>
+      <div style="border-top:1px solid rgba(245,245,245,0.14)"></div>
+    </div>
+  </section>
+
+  <dc-import name="Contact Block" lang="{{ lang }}" hint-size="100%,760px"></dc-import>
+  <dc-import name="Site Footer" lang="{{ lang }}" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: null, ready: false };
+  componentDidMount() {
+    this.iv = setInterval(() => { if (window.WSITE && window.WCONTENT) { clearInterval(this.iv); this.setState({ ready: true }); } }, 50);
+    this.onLang = (e) => this.setState({ lang: e.detail }); window.addEventListener("welteco-lang", this.onLang);
+  }
+  componentWillUnmount() { clearInterval(this.iv); window.removeEventListener("welteco-lang", this.onLang); }
+  renderVals() {
+    const S = window.WSITE, C = window.WCONTENT;
+    const lang = this.state.lang || (S ? S.getLang() : "ua");
+    const base = { lang, setLang: (l) => this.setState({ lang: l }), a: {}, s: {}, t: { about: { p: [] } }, features: [], list: [] };
+    if (!S || !C) return base;
+    const t = C[lang]; const a = t.aboutPage; const pad = (i) => String(i + 1).padStart(2, "0");
+    const icons = C.FEATURE_ICONS.map((x, i) => i === 2 ? "assets/icon-years-amber.svg" : x.replace(".svg", "-amber.svg"));
+    const hrefs = [S.L.product("dnk100"), S.L.contacts, S.L.contacts, S.L.machines, S.L.contacts, S.L.contacts, S.L.contacts];
+    return { ...base, a, s: S.T[lang].about, t, features: t.about.features.map((label, i) => ({ label, n: pad(i), icon: icons[i] })), list: a.list.map((label, i) => ({ label, n: pad(i), href: hrefs[i] || S.L.contacts })) };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!-- @dsCard group="Welteco Website" viewport="1440x900" name="Welteco — redesigned site" subtitle="All 7 pages from Rostislav4r/welteco-website, UA/EN toggle" -->
+<!DOCTYPE html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WELTECO | Обладнання для виробництва бетонних виробів</title>
+<link rel="icon" href="assets/65ebb3898f1c997a3e9475c9_welteco_Favicon.png">
+<link rel="stylesheet" href="../../styles.css">
+<style>html,body{margin:0;background:#F5F5F5;font-family:var(--font-sans);color:#1D1C1C;-webkit-font-smoothing:antialiased}*{box-sizing:border-box}a{color:#20387F}a:hover{color:#1D1C1C}@keyframes wMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="content.js"></script>
+</head><body><div id="root"></div>
+<script type="text/babel" src="Shell.jsx"></script>
+<script type="text/babel" src="Home.jsx"></script>
+<script type="text/babel" src="Pages.jsx"></script>
+<script type="text/babel">
+const PAGES = { home: HomePage, about: AboutPage, partners: PartnersPage, products: ProductsPage, machines: MachinesPage, contacts: ContactsPage, update: UpdatePage };
+const parse = () => { const [p, a] = (location.hash.replace(/^#\/?/, "") || "home").split("#"); return [PAGES[p] ? p : "home", a]; };
+function App() {
+  const [[page, anchor], setRoute] = React.useState(parse);
+  const [lang, setLangState] = React.useState(() => localStorage.getItem("welteco-lang") || "ua");
+  const setLang = (l) => { setLangState(l); localStorage.setItem("welteco-lang", l); document.documentElement.lang = l === "en" ? "en" : "uk"; };
+  React.useEffect(() => { const f = () => setRoute(parse()); window.addEventListener("hashchange", f); return () => window.removeEventListener("hashchange", f); }, []);
+  React.useEffect(() => {
+    if (anchor) { const el = document.getElementById(anchor); if (el) { setTimeout(() => window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 76, behavior: "smooth" }), 30); return; } }
+    window.scrollTo(0, 0);
+  }, [page, anchor]);
+  const go = (target) => { const h = "#/" + target; if (location.hash === h) { setRoute(parse()); } location.hash = h; };
+  const Page = PAGES[page];
+  return (
+    <LangCtx.Provider value={{ lang, setLang, t: C[lang], go }}>
+      <SiteNav page={page} />
+      <main><Page key={page + lang} /></main>
+      <SiteFooter />
+    </LangCtx.Provider>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script></body></html>

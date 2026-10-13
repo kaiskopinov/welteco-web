@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300;400;500;600;700&display=swap">
+<script src="content.js"></script>
+<script src="site-content.js"></script>
+<script src="image-slot.js"></script>
+<style>body{margin:0;background:#131518}*{box-sizing:border-box}a{color:#FFB869}a:hover{color:#F5F5F5}</style>
+</helmet>
+<div style="container-type:inline-size;background:#131518;color:#F5F5F5;font-family:'Funnel Sans',-apple-system,'Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased">
+  <dc-import name="Site Header" active="machines" lang="{{ lang }}" on-lang="{{ setLang }}" hint-size="100%,80px"></dc-import>
+
+  <section style="border-bottom:1px solid rgba(245,245,245,0.08)">
+    <div style="max-width:1428px;margin:0 auto;padding:clamp(48px,6cqw,96px) 20px;display:flex;flex-direction:column;gap:24px">
+      <span style="align-self:flex-start;padding:8px 12px;border-radius:4px;background:#004394;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase">{{ m.kicker }}</span>
+      <h1 style="margin:0;max-width:1100px;font-size:clamp(40px,5.6cqw,88px);line-height:0.96;font-weight:500;letter-spacing:-0.02em;text-transform:uppercase;text-wrap:balance">{{ m.h1 }}</h1>
+      <p style="margin:0;max-width:680px;font-size:18px;line-height:27px;color:rgba(245,245,245,0.8);text-wrap:pretty">{{ m.sub }}</p>
+    </div>
+  </section>
+
+  <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
+    <section style="padding:clamp(56px,6cqw,96px) 0 0">
+      <div style="max-width:1428px;margin:0 auto;padding:0 20px;display:flex;flex-direction:column;gap:24px">
+        <div style="display:flex;align-items:baseline;gap:16px;padding-bottom:16px;border-bottom:1px solid rgba(245,245,245,0.14)">
+          <span style="font-size:14px;line-height:19.6px;color:#FFB869">{{ g.n }}</span>
+          <h2 style="margin:0;font-size:clamp(24px,2.4cqw,34px);line-height:1.1;font-weight:500;text-transform:uppercase">{{ g.title }}</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:6px">
+          <sc-for list="{{ g.items }}" as="p" hint-placeholder-count="3">
+            <a href="{{ p.href }}" style="position:relative;display:flex;flex-direction:column;border-radius:4px;overflow:hidden;background:#1A1D21;border:1px solid rgba(245,245,245,0.08);color:#F5F5F5;text-decoration:none;transition:border-color 300ms ease,transform 300ms ease" style-hover="border-color:rgba(255,184,105,0.5);transform:translateY(-3px)">
+              <div style="position:relative;aspect-ratio:4 / 3;background:#131518;overflow:hidden">
+                <div style="position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,184,105,0.14) 1px,transparent 1px),linear-gradient(90deg,rgba(255,184,105,0.14) 1px,transparent 1px);background-size:28px 28px;-webkit-mask-image:radial-gradient(circle at 0% 0%,#000 0%,transparent 60%);mask-image:radial-gradient(circle at 0% 0%,#000 0%,transparent 60%)"></div>
+                <sc-if value="{{ p.hasImage }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;inset:0;background-image:url('{{ p.image }}');background-size:cover;background-position:50% 50%"></div></sc-if>
+                <sc-if value="{{ p.noImage }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.4)">{{ p.photoSoon }}</div></sc-if>
+              </div>
+              <div style="padding:20px 20px 22px;display:flex;flex-direction:column;gap:10px;flex:1">
+                <span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:#FFB869">{{ p.kicker }}</span>
+                <span style="font-size:24px;line-height:28px;font-weight:500;text-transform:uppercase">{{ p.name }}</span>
+                <span style="font-size:15px;line-height:22px;color:rgba(245,245,245,0.7)">{{ p.short }}</span>
+                <span style="margin-top:auto;padding-top:12px;display:flex;justify-content:space-between;align-items:center;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase;color:#FFB869">{{ details }}<span style="font-size:18px;line-height:1">→</span></span>
+              </div>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+  </sc-for>
+
+  <section style="padding:clamp(64px,7cqw,112px) 0">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px">
+      <div style="position:relative;overflow:hidden;border-radius:4px;background:#1A1D21;border:1px solid rgba(245,245,245,0.08);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr))">
+        <div style="position:absolute;left:0;top:0;width:100%;height:3px;background:#FFB869"></div>
+        <div style="padding:clamp(28px,4cqw,56px);display:flex;flex-direction:column;gap:20px">
+          <span style="align-self:flex-start;padding:8px 12px;border-radius:4px;background:#004394;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase">{{ m.moulds }}</span>
+          <h2 style="margin:0;font-size:clamp(28px,3.2cqw,46px);line-height:1.04;font-weight:500;letter-spacing:-0.01em;text-transform:uppercase;text-wrap:balance">{{ mo.title }}</h2>
+          <p style="margin:0;font-size:18px;line-height:26px;color:#FFB869">{{ mo.sub }}</p>
+          <sc-for list="{{ mo.p }}" as="t" hint-placeholder-count="2"><p style="margin:0;font-size:16px;line-height:25px;color:rgba(245,245,245,0.78);text-wrap:pretty">{{ t }}</p></sc-for>
+          <div><a href="Contacts.dc.html" style="display:inline-flex;align-items:center;gap:12px;padding:14px 20px;border-radius:4px;background:#FFB869;color:#131518;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.85">{{ mo.cta }}<span style="font-size:18px;line-height:1">→</span></a></div>
+        </div>
+        <div style="padding:clamp(28px,4cqw,56px);background:#131518;border-left:1px solid rgba(245,245,245,0.08);display:flex;flex-direction:column;gap:20px;justify-content:center">
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <sc-for list="{{ mo.items }}" as="i" hint-placeholder-count="10"><span style="display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:4px;background:#1A1D21;border:1px solid rgba(245,245,245,0.1);font-size:15px;line-height:20px;font-weight:500;text-transform:uppercase;letter-spacing:0.2px"><span style="width:8px;height:8px;background:#FFB869"></span>{{ i }}</span></sc-for>
+          </div>
+          <span style="font-size:14px;line-height:20px;color:rgba(245,245,245,0.6)">{{ mo.note }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Contact Block" lang="{{ lang }}" hint-size="100%,760px"></dc-import>
+  <dc-import name="Site Footer" lang="{{ lang }}" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: null, ready: false };
+  componentDidMount() {
+    this.iv = setInterval(() => { if (window.WSITE) { clearInterval(this.iv); this.setState({ ready: true }); } }, 50);
+    this.onLang = (e) => this.setState({ lang: e.detail }); window.addEventListener("welteco-lang", this.onLang);
+  }
+  componentWillUnmount() { clearInterval(this.iv); window.removeEventListener("welteco-lang", this.onLang); }
+  renderVals() {
+    const S = window.WSITE;
+    const lang = this.state.lang || (S ? S.getLang() : "ua");
+    const base = { lang, setLang: (l) => this.setState({ lang: l }), m: {}, mo: { p: [], items: [] }, groups: [] };
+    if (!S) return base;
+    const T = S.T[lang]; const photoSoon = lang === "en" ? "Photo coming soon" : "Фото незабаром";
+    const groups = ["vibro", "plant", "mixer"].map((g, i) => ({ n: String(i + 1).padStart(2, "0"), title: T.groups[g],
+      items: S.PRODUCTS.filter((p) => p.group === g).map((p) => ({ name: p[lang].name, kicker: p[lang].kicker, short: p[lang].short, href: S.L.product(p.id), image: p.image || "", hasImage: !!p.image, noImage: !p.image, photoSoon })) }));
+    return { ...base, m: T.machines, mo: T.moulds, groups, details: T.common.details };
+  }
+}
+</script>
+</body>
+</html>

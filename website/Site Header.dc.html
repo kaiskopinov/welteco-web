@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300;400;500;600;700&display=swap">
+<script src="content.js"></script>
+<script src="site-content.js"></script>
+<style>body{margin:0;background:#131518}*{box-sizing:border-box}a{color:#FFB869}a:hover{color:#F5F5F5}</style>
+</helmet>
+<header style="position:relative;z-index:20;background:#131518;border-bottom:1px solid rgba(245,245,245,0.1);color:#F5F5F5;font-family:'Funnel Sans',-apple-system,'Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased">
+  <div style="max-width:1428px;margin:0 auto;padding:0 20px;height:80px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="Home B Amber.dc.html" style="display:block;line-height:0"><img src="assets/65e9f1863a7cfee7941c6e94_welteco-logo__2_.svg" alt="Welteco" style="height:42px;width:auto;display:block"></a>
+    <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;align-items:center;gap:4px">
+        <sc-for list="{{ items }}" as="n" hint-placeholder-count="5">
+          <a href="{{ n.href }}" style="padding:8px 14px;border-radius:4px;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase;color:{{ n.color }};background:{{ n.bg }};text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.6">{{ n.label }}</a>
+        </sc-for>
+      </nav>
+    </sc-if>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="display:flex;padding:3px;border-radius:6px;border:1px solid rgba(245,245,245,0.2);background:rgba(255,255,255,0.06)">
+        <button onClick="{{ setUA }}" style="all:unset;cursor:pointer;padding:5px 9px;border-radius:4px;font-size:12px;line-height:16.8px;text-transform:uppercase;background:{{ uaBg }};color:{{ uaFg }}">ukr</button>
+        <button onClick="{{ setEN }}" style="all:unset;cursor:pointer;padding:5px 9px;border-radius:4px;font-size:12px;line-height:16.8px;text-transform:uppercase;background:{{ enBg }};color:{{ enFg }}">eng</button>
+      </div>
+      <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+        <a href="Contacts.dc.html" style="display:inline-flex;padding:12px 18px;border-radius:4px;background:#FFB869;color:#131518;font-size:14px;line-height:20px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.8">{{ contactLabel }}</a>
+      </sc-if>
+      <sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ toggle }}" aria-label="Menu" style="all:unset;cursor:pointer;width:44px;height:44px;border-radius:6px;background:#FFB869;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px">
+          <span style="width:18px;height:2px;background:#131518"></span><span style="width:18px;height:2px;background:#131518"></span><span style="width:18px;height:2px;background:#131518"></span>
+        </button>
+      </sc-if>
+    </div>
+  </div>
+  <sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
+    <nav style="border-top:1px solid rgba(245,245,245,0.1);padding:12px 20px 20px;display:flex;flex-direction:column;gap:4px;background:#131518">
+      <sc-for list="{{ items }}" as="n" hint-placeholder-count="5">
+        <a href="{{ n.href }}" style="padding:14px 12px;border-radius:4px;font-size:16px;line-height:22px;letter-spacing:0.2px;text-transform:uppercase;color:{{ n.color }};background:{{ n.bg }};text-decoration:none">{{ n.label }}</a>
+      </sc-for>
+      <a href="Contacts.dc.html" style="margin-top:8px;display:flex;justify-content:center;padding:14px 18px;border-radius:4px;background:#FFB869;color:#131518;font-size:14px;line-height:20px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none">{{ contactLabel }}</a>
+    </nav>
+  </sc-if>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:80},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;about&quot;,&quot;machines&quot;,&quot;examples&quot;,&quot;partners&quot;,&quot;contacts&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ua&quot;,&quot;en&quot;],&quot;default&quot;:&quot;ua&quot;,&quot;tsType&quot;:&quot;'ua'|'en'&quot;},&quot;onLang&quot;:{&quot;editor&quot;:null,&quot;default&quot;:null,&quot;tsType&quot;:&quot;(l:string)=&gt;void&quot;}}">
+class Component extends DCLogic {
+  state = { open: false, mobile: false, lang: null };
+  componentDidMount() {
+    this.mq = window.matchMedia("(max-width: 960px)");
+    this.onMq = () => this.setState({ mobile: this.mq.matches });
+    this.onMq(); this.mq.addEventListener("change", this.onMq);
+    this.onLang = (e) => this.setState({ lang: e.detail });
+    window.addEventListener("welteco-lang", this.onLang);
+    this.iv = setInterval(() => { if (window.WSITE) { clearInterval(this.iv); this.forceUpdate(); } }, 50);
+  }
+  componentWillUnmount() { this.mq.removeEventListener("change", this.onMq); window.removeEventListener("welteco-lang", this.onLang); clearInterval(this.iv); }
+  renderVals() {
+    const S = window.WSITE;
+    const lang = this.props.lang || this.state.lang || (S ? S.getLang() : "ua");
+    const set = (l) => { if (S) S.setLang(l); if (this.props.onLang) this.props.onLang(l); this.setState({ lang: l }); };
+    const base = { desktop: !this.state.mobile, mobile: this.state.mobile, open: this.state.open && this.state.mobile, toggle: () => this.setState((s) => ({ open: !s.open })),
+      setUA: () => set("ua"), setEN: () => set("en"),
+      uaBg: lang === "ua" ? "#FFB869" : "transparent", uaFg: lang === "ua" ? "#131518" : "#F5F5F5",
+      enBg: lang === "en" ? "#FFB869" : "transparent", enFg: lang === "en" ? "#131518" : "#F5F5F5", contactLabel: lang === "en" ? "contact us" : "написати нам", items: [] };
+    if (!S) return base;
+    const n = S.T[lang].nav; const active = this.props.active || "";
+    const mk = (key, label, href) => ({ label, href, color: key === active ? "#FFB869" : "#F5F5F5", bg: key === active ? "rgba(255,184,105,0.1)" : "transparent" });
+    return { ...base, contactLabel: n.contact, items: [mk("about", n.about, S.L.about), mk("machines", n.machines, S.L.machines), mk("examples", n.examples, S.L.examples), mk("partners", n.partners, S.L.partners), mk("contacts", n.contacts, S.L.contacts)] };
+  }
+}
+</script>
+</body>
+</html>

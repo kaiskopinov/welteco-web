@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300;400;500;600;700&display=swap">
+<script src="content.js"></script>
+<style>body{margin:0;background:#F5F5F5}*{box-sizing:border-box}a{color:#20387F}a:hover{color:#1D1C1C}@keyframes wMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}</style>
+</helmet>
+<div style="container-type:inline-size;background:#F5F5F5;color:#1D1C1C;font-family:'Funnel Sans',-apple-system,'Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden">
+
+  <header style="position:relative;z-index:5;background:#F5F5F5;border-bottom:1px solid rgba(29,28,28,0.1)">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px;height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <img src="assets/65e9e392c9a05bfae0d93688_Group_75.svg" alt="Welteco" style="height:40px;width:auto;display:block">
+      <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+        <nav style="display:flex;align-items:center;gap:4px">
+          <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="4">
+            <a href="#" style="padding:8px 14px;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase;color:#1D1C1C;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.5">{{ n }}</a>
+          </sc-for>
+        </nav>
+      </sc-if>
+      <div style="display:flex;align-items:center;gap:8px">
+        <div style="display:flex;padding:3px;border-radius:6px;border:1px solid rgba(29,28,28,0.12)">
+          <button onClick="{{ setUA }}" style="all:unset;cursor:pointer;padding:5px 9px;border-radius:4px;font-size:12px;line-height:16.8px;text-transform:uppercase;background:{{ uaBg }};color:{{ uaFg }}">ukr</button>
+          <button onClick="{{ setEN }}" style="all:unset;cursor:pointer;padding:5px 9px;border-radius:4px;font-size:12px;line-height:16.8px;text-transform:uppercase;background:{{ enBg }};color:{{ enFg }}">eng</button>
+        </div>
+        <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+          <a href="#contact" style="display:inline-flex;align-items:center;padding:12px 18px;border-radius:4px;background:#FAF870;color:#1D1C1C;font-size:14px;line-height:20px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.8">{{ t.nav.contact }}</a>
+        </sc-if>
+        <sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+          <button aria-label="Menu" style="all:unset;cursor:pointer;width:44px;height:44px;border-radius:6px;background:#1D1C1C;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px">
+            <span style="width:18px;height:2px;background:#F5F5F5"></span><span style="width:18px;height:2px;background:#F5F5F5"></span><span style="width:18px;height:2px;background:#F5F5F5"></span>
+          </button>
+        </sc-if>
+      </div>
+    </div>
+  </header>
+
+  <section style="position:relative;min-height:clamp(700px,62cqw,900px);display:flex;background:#1D1C1C url('assets/654e77817b1a00f16f8dbf4f_Hero-video-Welteco_CGM-poster-00001.jpg') 50% 50% / cover no-repeat">
+    <video ref="{{ vidRef }}" autoplay="" muted="" loop="" playsinline="" poster="assets/654e77817b1a00f16f8dbf4f_Hero-video-Welteco_CGM-poster-00001.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><source src="assets/vibrocast-3000-stampo-canalina.mp4" type="video/mp4"><source src="https://raw.githubusercontent.com/Rostislav4r/welteco-website/main/site/assets/654e77817b1a00f16f8dbf4f_Hero-video-Welteco_CGM-transcode.mp4" type="video/mp4"><source src="https://raw.githubusercontent.com/Rostislav4r/welteco-website/main/site/assets/65f8aa8d950fb6027b252092_WELTECO-paertners-video-transcode.mp4" type="video/mp4"></video>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(29,28,28,0.55) 0%,rgba(29,28,28,0.25) 38%,rgba(29,28,28,0.92) 100%)"></div>
+    <div style="position:relative;flex:1;min-width:0;max-width:1428px;margin:0 auto;padding:40px 20px 0;display:flex;flex-direction:column;justify-content:space-between;gap:64px">
+      <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.7)">
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:6px;height:6px;border-radius:3px;background:#FAF870"></span>CGM · Cacciamani · WiTech</span>
+        <span>{{ t.hero.credit }}</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:28px;max-width:1040px">
+        <h1 style="margin:0;font-size:clamp(28px,6.4cqw,100px);line-height:0.98;overflow-wrap:anywhere;hyphens:auto;font-weight:500;letter-spacing:-0.01em;text-transform:uppercase;color:#F5F5F5;text-wrap:balance">{{ t.hero.title }}</h1>
+        <div style="display:flex;gap:32px;flex-wrap:wrap;align-items:flex-end;justify-content:space-between">
+          <p style="margin:0;max-width:500px;font-size:18px;line-height:26px;color:rgba(245,245,245,0.85);text-wrap:pretty">{{ t.hero.sub }}</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <a href="#contact" style="display:inline-flex;align-items:center;padding:14px 20px;border-radius:4px;background:#FAF870;color:#1D1C1C;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.8">{{ t.nav.contact }}</a>
+            <a href="#offers" style="display:inline-flex;align-items:center;padding:14px 20px;border-radius:4px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.4);backdrop-filter:blur(20px);color:#F5F5F5;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.8">{{ t.hero.cta }}</a>
+          </div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));border-top:1px solid rgba(245,245,245,0.25)">
+        <sc-for list="{{ cats }}" as="c" hint-placeholder-count="4">
+          <a href="#offers" style="display:flex;flex-direction:column;gap:10px;padding:20px 24px 32px 0;color:#F5F5F5;text-decoration:none;border-bottom:1px solid rgba(245,245,245,0.12);transition:opacity 200ms ease" style-hover="opacity:0.6">
+            <span style="font-size:12px;line-height:16.8px;color:#FAF870">{{ c.n }}</span>
+            <span style="font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase;text-wrap:balance">{{ c.label }}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(80px,10cqw,144px) 0 clamp(64px,7cqw,96px)">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px">
+      <div style="display:flex;flex-wrap:wrap;gap:32px 24px">
+        <div style="flex:1 1 280px;display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+          <span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;color:rgba(29,28,28,0.5)">01</span>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <span style="padding:8px 12px;border-radius:4px;background:#DBDBDB;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase">{{ t.about.eyebrow }}</span>
+            <span style="padding:8px 12px;border-radius:4px;background:#FAF870;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase">{{ t.about.why }}</span>
+          </div>
+        </div>
+        <div style="flex:3 1 600px;min-width:0;display:flex;flex-direction:column;gap:40px">
+          <h2 style="margin:0;font-size:clamp(28px,3.3cqw,48px);line-height:1.1;font-weight:500;letter-spacing:-0.01em;text-wrap:balance">{{ t.about.title }}</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px;padding-top:24px;border-top:1px solid rgba(29,28,28,0.12)">
+            <sc-for list="{{ t.about.p }}" as="p" hint-placeholder-count="2">
+              <p style="margin:0;font-size:16px;line-height:24px;color:#313138;text-wrap:pretty">{{ p }}</p>
+            </sc-for>
+          </div>
+          <div><a href="#" style="display:inline-flex;padding:12px 18px;border-radius:4px;background:#1D1C1C;color:#F5F5F5;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.8">{{ t.about.cta }}</a></div>
+        </div>
+      </div>
+      <div style="margin-top:clamp(56px,6cqw,96px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:1px;background:#3A3A3A;border-radius:4px;overflow:hidden">
+        <sc-for list="{{ features }}" as="f" hint-placeholder-count="4">
+          <div style="background:#1D1C1C;min-height:clamp(200px,18cqw,280px);padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start">
+              <img src="{{ f.icon }}" alt="" style="height:48px;width:auto">
+              <span style="font-size:12px;line-height:16.8px;color:rgba(245,245,245,0.4)">{{ f.n }}</span>
+            </div>
+            <div style="font-size:22px;line-height:28px;font-weight:500;color:#F5F5F5;text-transform:uppercase;text-wrap:balance">{{ f.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(72px,7cqw,112px) 0;background:#E4E2E2">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:16px;max-width:880px">
+          <span style="font-size:12px;line-height:16.8px;color:rgba(29,28,28,0.5)">02</span>
+          <span style="align-self:flex-start;padding:8px 12px;border-radius:4px;background:#F5F5F5;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase">{{ t.partners.eyebrow }}</span>
+          <h2 style="margin:0;font-size:clamp(24px,2.4cqw,34px);line-height:1.15;font-weight:500;text-transform:uppercase;text-wrap:balance">{{ t.partners.text }}</h2>
+        </div>
+        <a href="#" style="display:inline-flex;padding:12px 18px;border-radius:4px;border:1px solid #1D1C1C;color:#1D1C1C;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.6">{{ t.partners.cta }}</a>
+      </div>
+      <div style="margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:6px">
+        <sc-for list="{{ partners }}" as="p" hint-placeholder-count="3">
+          <a href="#" style="display:flex;flex-direction:column;border-radius:4px;background:#FFFFFF;text-decoration:none;color:#1D1C1C;overflow:hidden;transition:transform 300ms ease" style-hover="transform:translateY(-3px)">
+            <div style="height:clamp(160px,14cqw,220px);display:flex;align-items:center;justify-content:center;padding:24px">
+              <sc-if value="{{ p.logo }}" hint-placeholder-val="{{ true }}"><img src="{{ p.logo }}" alt="{{ p.name }}" style="max-width:58%;max-height:96px"></sc-if>
+              <sc-if value="{{ p.noLogo }}" hint-placeholder-val="{{ false }}"><span style="font-size:64px;line-height:1;font-weight:700;letter-spacing:-0.02em;color:#004394">CGM</span></sc-if>
+            </div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:16px 20px;border-top:1px solid rgba(29,28,28,0.08);font-size:14px;line-height:19.6px">
+              <span style="font-weight:500;text-transform:uppercase;letter-spacing:0.2px">{{ p.name }}</span>
+              <span style="color:rgba(29,28,28,0.6);text-align:right">{{ p.note }}</span>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="offers" style="padding:clamp(80px,10cqw,144px) 0">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <span style="font-size:12px;line-height:16.8px;color:rgba(29,28,28,0.5)">03</span>
+          <h2 style="margin:0;font-size:clamp(32px,4cqw,56px);line-height:1;font-weight:500;letter-spacing:-0.01em;text-transform:uppercase">{{ t.offers.eyebrow }}</h2>
+        </div>
+        <a href="#contact" style="display:inline-flex;padding:12px 18px;border-radius:4px;background:#1D1C1C;color:#F5F5F5;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.8">{{ t.offers.cta }}</a>
+      </div>
+      <a href="#" style="margin-top:40px;position:relative;display:flex;align-items:flex-end;min-height:clamp(420px,40cqw,620px);border-radius:4px;overflow:hidden;text-decoration:none;background:#1D1C1C url('assets/65c11242abf27e86e1a1caf4_Vibro-forming_machine._CGM-_Welteco_s_partner-p-1080.png') 50% 40% / cover no-repeat">
+        <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(29,28,28,0.85) 0%,rgba(29,28,28,0.2) 60%),linear-gradient(180deg,rgba(29,28,28,0) 50%,rgba(29,28,28,0.6) 100%)"></div>
+        <img src="assets/65da542e31d71fae16e008c7_arrow_icon.svg" alt="" style="position:absolute;top:28px;right:28px;width:32px;height:32px">
+        <div style="position:relative;padding:clamp(24px,3cqw,40px);display:flex;flex-direction:column;gap:16px;max-width:680px">
+          <span style="align-self:flex-start;padding:6px 10px;border-radius:3px;background:#FAF870;color:#1D1C1C;font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase">01 · CGM</span>
+          <h3 style="margin:0;font-size:clamp(28px,3.2cqw,46px);line-height:1.05;font-weight:500;text-transform:uppercase;color:#F5F5F5;text-wrap:balance">{{ t.offers.featured }}</h3>
+        </div>
+      </a>
+      <div style="margin-top:6px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:6px">
+        <sc-for list="{{ offers }}" as="o" hint-placeholder-count="5">
+          <a href="#" style="position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:clamp(320px,28cqw,420px);padding:22px;border-radius:4px;overflow:hidden;text-decoration:none;background:#313138">
+            <div style="position:absolute;inset:0;background-image:url('{{ o.img }}');background-size:cover;background-position:50% 50%;transition:transform 600ms ease" style-hover="transform:scale(1.05)"></div>
+            <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(29,28,28,0.35) 0%,rgba(29,28,28,0) 30%,rgba(29,28,28,0.9) 100%)"></div>
+            <div style="position:relative;pointer-events:none;display:flex;justify-content:space-between;align-items:flex-start">
+              <span style="font-size:12px;line-height:16.8px;color:#FAF870">{{ o.n }}</span>
+              <img src="assets/65da542e31d71fae16e008c7_arrow_icon.svg" alt="" style="width:22px;height:22px">
+            </div>
+            <h3 style="position:relative;pointer-events:none;margin:0;font-size:20px;line-height:26px;font-weight:500;text-transform:uppercase;color:#F5F5F5;text-wrap:balance">{{ o.title }}</h3>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:clamp(72px,7cqw,112px) 0;background:#DBDBDB;overflow:hidden">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:860px">
+        <span style="font-size:12px;line-height:16.8px;color:rgba(29,28,28,0.5)">04</span>
+        <h2 style="margin:0;font-size:clamp(24px,2.4cqw,34px);line-height:1.15;font-weight:500;text-transform:uppercase;text-wrap:balance">{{ t.strip.title }}</h2>
+      </div>
+      <a href="#" style="display:inline-flex;padding:12px 18px;border-radius:4px;background:#1D1C1C;color:#F5F5F5;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;text-decoration:none;transition:opacity 200ms ease" style-hover="opacity:0.8">{{ t.strip.cta }}</a>
+    </div>
+    <div style="margin-top:48px">{{ marquee }}</div>
+  </section>
+
+  <section id="contact" style="padding:clamp(80px,9cqw,128px) 0;background:#20387F;color:#F5F5F5">
+    <div style="max-width:1428px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:48px">
+      <div style="display:flex;flex-direction:column;justify-content:space-between;gap:48px">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <span style="align-self:flex-start;padding:8px 12px;border-radius:4px;background:rgba(255,255,255,0.1);font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase">{{ t.contact.eyebrow }}</span>
+          <h2 style="margin:0;font-size:clamp(32px,3.6cqw,52px);line-height:1.05;font-weight:500;text-transform:uppercase;text-wrap:balance">{{ t.contact.title1 }}</h2>
+          <p style="margin:0;max-width:440px;font-size:20px;line-height:26px;color:#FAF870;text-wrap:pretty">{{ t.contact.title2 }}</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;padding-top:24px;border-top:1px solid rgba(245,245,245,0.2)">
+          <span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.7)">{{ t.contact.call }}</span>
+          <a href="tel:+380674871637" style="color:#F5F5F5;text-decoration:none;font-size:clamp(26px,2.4cqw,36px);line-height:1.1;font-weight:500">+3 8067 487 1637</a>
+          <a href="mailto:office@welteco.com" style="color:#F5F5F5;text-decoration:none;font-size:18px;line-height:26px">office@welteco.com</a>
+          <div style="display:flex;gap:6px;margin-top:8px">
+            <a href="https://wa.me/380674871637" style="width:44px;height:44px;border-radius:6px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2)"><img src="assets/65e9f2479ebf7a9c6af4a117_whatsapp_icon.svg" alt="WhatsApp" style="width:22px;height:22px"></a>
+            <a href="https://msng.link/o?Adik845=tg" style="width:44px;height:44px;border-radius:6px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2)"><img src="assets/65e9f2471ab5b24547f21f1e_telegram-icon_1.svg" alt="Telegram" style="width:22px;height:22px"></a>
+            <a href="https://msng.link/o?380674871637=vi" style="width:44px;height:44px;border-radius:6px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2)"><img src="assets/65e9f24742938d7a06e22cdb_viber-white-icon__2__1.svg" alt="Viber" style="width:22px;height:22px"></a>
+          </div>
+        </div>
+      </div>
+      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submit }}" style="padding:clamp(24px,3cqw,40px);border-radius:6px;background:#F5F5F5;color:#1D1C1C;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:28px 20px">
+          <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(29,28,28,0.6)">{{ t.contact.name }}</span><input required="" style="all:unset;padding:10px 0;border-bottom:1px solid #AFACAC;font-size:16px;line-height:24px" style-focus="border-bottom-color:#20387F"></label>
+          <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(29,28,28,0.6)">{{ t.contact.phone }}</span><input required="" type="tel" style="all:unset;padding:10px 0;border-bottom:1px solid #AFACAC;font-size:16px;line-height:24px" style-focus="border-bottom-color:#20387F"></label>
+          <label style="grid-column:1 / -1;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(29,28,28,0.6)">{{ t.contact.email }}</span><input required="" type="email" style="all:unset;padding:10px 0;border-bottom:1px solid #AFACAC;font-size:16px;line-height:24px" style-focus="border-bottom-color:#20387F"></label>
+          <label style="grid-column:1 / -1;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(29,28,28,0.6)">{{ t.contact.message }}</span><textarea required="" style="all:unset;min-height:96px;padding:10px 0;border-bottom:1px solid #AFACAC;font-size:16px;line-height:24px" style-focus="border-bottom-color:#20387F"></textarea></label>
+          <button type="submit" style="all:unset;grid-column:1 / -1;cursor:pointer;text-align:center;padding:16px;border-radius:4px;background:#FAF870;color:#1D1C1C;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;transition:opacity 200ms ease" style-hover="opacity:0.8">{{ t.contact.submit }}</button>
+        </form>
+      </sc-if>
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:40px;border-radius:6px;background:#F5F5F5;color:#1D1C1C;display:flex;flex-direction:column;gap:8px;justify-content:center">
+          <div style="font-size:28px;line-height:33.6px;font-weight:500">{{ t.contact.success.0 }}</div>
+          <div style="font-size:16px;line-height:24px">{{ t.contact.success.1 }}</div>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <footer style="background:#1D1C1C;color:#F5F5F5">
+    <div style="max-width:1428px;margin:0 auto;padding:clamp(64px,7cqw,96px) 20px 24px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:48px">
+        <img src="assets/65e9f1863a7cfee7941c6e94_welteco-logo__2_.svg" alt="Welteco" style="height:52px;width:auto;align-self:flex-start;justify-self:start">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.55)">Welteco</span>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <sc-for list="{{ footLinks }}" as="l" hint-placeholder-count="4"><a href="#" style="color:#F5F5F5;text-decoration:none;font-size:16px;line-height:24px;transition:opacity 200ms ease" style-hover="opacity:0.6">{{ l }}</a></sc-for>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.55)">{{ t.footer.offersTitle }}</span>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <sc-for list="{{ t.footer.offers }}" as="l" hint-placeholder-count="6"><a href="#" style="color:#F5F5F5;text-decoration:none;font-size:16px;line-height:24px;transition:opacity 200ms ease" style-hover="opacity:0.6">{{ l }}</a></sc-for>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <span style="font-size:12px;line-height:16.8px;letter-spacing:0.2px;text-transform:uppercase;color:rgba(245,245,245,0.55)">{{ t.contact.call }}</span>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <a href="tel:+380674871637" style="color:#F5F5F5;text-decoration:none;font-size:16px;line-height:24px">+3 8067 487 1637</a>
+            <a href="mailto:office@welteco.com" style="color:#F5F5F5;text-decoration:none;font-size:16px;line-height:24px">office@welteco.com</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:72px;padding-top:16px;border-top:1px solid rgba(230,228,223,0.2);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.1px;line-height:18.12px;color:rgba(245,245,245,0.55)">
+        <span>© Welteco</span>
+        <a href="#" style="color:rgba(245,245,245,0.55)">{{ t.footer.privacy }}</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;ua&quot;,&quot;en&quot;],&quot;default&quot;:&quot;ua&quot;,&quot;tsType&quot;:&quot;'ua'|'en'&quot;},&quot;mobile&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { lang: null, sent: false, ready: !!window.WCONTENT };
+  componentDidMount() {
+    if (!window.WCONTENT) this.iv = setInterval(() => { if (window.WCONTENT) { clearInterval(this.iv); this.setState({ ready: true }); } }, 50);
+  }
+  componentWillUnmount() { clearInterval(this.iv); }
+  renderVals() {
+    const mobile = !!this.props.mobile;
+    const lang = this.state.lang || this.props.lang || "ua";
+    const base = { vidRef: this.vidRef || (this.vidRef = (el) => { if (el) { el.muted = true; const p = el.play(); if (p) p.catch(() => {}); } }), mobile, desktop: !mobile, setUA: () => this.setState({ lang: "ua" }), setEN: () => this.setState({ lang: "en" }),
+      uaBg: lang === "ua" ? "#1D1C1C" : "transparent", uaFg: lang === "ua" ? "#F5F5F5" : "#1D1C1C",
+      enBg: lang === "en" ? "#1D1C1C" : "transparent", enFg: lang === "en" ? "#F5F5F5" : "#1D1C1C",
+      sent: this.state.sent, notSent: !this.state.sent, submit: (e) => { e.preventDefault(); this.setState({ sent: true }); } };
+    const C = window.WCONTENT;
+    if (!C) return base;
+    const t = C[lang];
+    const pad = (i) => String(i).padStart(2, "0");
+    const notes = lang === "en" ? ["40+ years of manufacturing", "Official representative in Ukraine", "Since 1970"] : ["Понад 40 років виробництва", "Офіційний представник в Україні", "З 1970 року"];
+    const imgs = [...C.STRIP, ...C.STRIP];
+    const marquee = React.createElement("div", { style: { display: "flex", gap: 6, width: "max-content", animation: "wMarquee 60s linear infinite" } },
+      imgs.map((src, i) => React.createElement("div", { key: i, style: { width: 240, height: 240, flexShrink: 0, borderRadius: 4, background: "#F5F5F5", display: "flex", alignItems: "center", justifyContent: "center" } },
+        React.createElement("img", { src, alt: "", style: { maxWidth: "78%", maxHeight: "78%", objectFit: "contain" } }))));
+    return { ...base, t,
+      navItems: [t.nav.about, t.nav.offers, t.nav.products, t.nav.partners],
+      cats: t.hero.cats.map((label, i) => ({ n: pad(i + 1), label })),
+      features: t.about.features.map((label, i) => ({ label, n: pad(i + 1), icon: C.FEATURE_ICONS[i] })),
+      partners: ["Cacciamani", "CGM", "WiTech"].map((name, i) => ({ name, note: notes[i], logo: C.PARTNER_LOGOS[i], noLogo: !C.PARTNER_LOGOS[i] })),
+      offers: t.offers.items.map((title, i) => ({ title, n: pad(i + 2), img: C.OFFER_IMAGES[i] })),
+      footLinks: t.footer.links.map((l) => l[0]),
+      marquee };
+  }
+}
+</script>
+</body>
+</html>

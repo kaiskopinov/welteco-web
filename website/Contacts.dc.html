@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300;400;500;600;700&display=swap">
+<script src="content.js"></script>
+<script src="site-content.js"></script>
+<style>body{margin:0;background:#131518}*{box-sizing:border-box}a{color:#FFB869}a:hover{color:#F5F5F5}</style>
+</helmet>
+<div style="container-type:inline-size;background:#131518;color:#F5F5F5;font-family:'Funnel Sans',-apple-system,'Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased">
+  <dc-import name="Site Header" active="contacts" lang="{{ lang }}" on-lang="{{ setLang }}" hint-size="100%,80px"></dc-import>
+  <section style="border-bottom:1px solid rgba(245,245,245,0.08)">
+    <div style="max-width:1428px;margin:0 auto;padding:clamp(48px,6cqw,96px) 20px 0;display:flex;flex-direction:column;gap:24px">
+      <span style="align-self:flex-start;padding:8px 12px;border-radius:4px;background:#004394;font-size:14px;line-height:19.6px;letter-spacing:0.2px;text-transform:uppercase">{{ c.kicker }}</span>
+      <h1 style="margin:0;font-size:clamp(40px,5.6cqw,88px);line-height:0.96;font-weight:500;letter-spacing:-0.02em;text-transform:uppercase">{{ c.h1 }}</h1>
+    </div>
+  </section>
+  <dc-import name="Contact Block" lang="{{ lang }}" hint-size="100%,760px"></dc-import>
+  <dc-import name="Site Footer" lang="{{ lang }}" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { lang: null, ready: false };
+  componentDidMount() {
+    this.iv = setInterval(() => { if (window.WSITE) { clearInterval(this.iv); this.setState({ ready: true }); } }, 50);
+    this.onLang = (e) => this.setState({ lang: e.detail }); window.addEventListener("welteco-lang", this.onLang);
+  }
+  componentWillUnmount() { clearInterval(this.iv); window.removeEventListener("welteco-lang", this.onLang); }
+  renderVals() {
+    const S = window.WSITE; const lang = this.state.lang || (S ? S.getLang() : "ua");
+    return { lang, setLang: (l) => this.setState({ lang: l }), c: S ? S.T[lang].contacts : {} };
+  }
+}
+</script>
+</body>
+</html>
